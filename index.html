@@ -367,7 +367,7 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
   <header class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">Batch 03 &middot; 10 seats &middot; Live online, part time</span>
+        <span class="eyebrow"><span data-cfg="batchName">Batch 03</span> &middot; <span data-cfg="seatsNumber">10</span> seats &middot; Live online, part time</span>
         <h1>Six months inside a <em>real engineering team</em>.</h1>
         <p class="hero-lede">A paid, mentor-led internship for fresh engineers. You work on live software alongside a working engineer, and you finish with a six-month experience certificate and a signed project letter.</p>
         <div class="hero-cta">
@@ -378,19 +378,19 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
       </div>
       <div class="factcard">
         <div class="factcard-head">
-          <span class="eyebrow">Batch 03 at a glance</span>
-          <span class="pill open"><span class="dot"></span>Applications open</span>
+          <span class="eyebrow"><span data-cfg="batchName">Batch 03</span> at a glance</span>
+          <span class="pill open"><span class="dot"></span><span data-cfg="statusLabel">Applications open</span></span>
         </div>
         <dl>
-          <dt>Duration</dt><dd>6 months</dd>
-          <dt>Format</dt><dd>Live online, part time</dd>
-          <dt>Live sessions</dt><dd>Mon–Fri 19:30–21:30 IST</dd>
-          <dt>Weekly commitment</dt><dd>~22 hours</dd>
-          <dt>Seats</dt><dd>10 per batch</dd>
-          <dt>Fee</dt><dd>₹1,20,000 total</dd>
+          <dt>Duration</dt><dd data-cfg="duration">6 months</dd>
+          <dt>Format</dt><dd data-cfg="format">Live online, part time</dd>
+          <dt>Live sessions</dt><dd data-cfg="sessionDaysTime">Mon–Fri 19:30–21:30 IST</dd>
+          <dt>Weekly commitment</dt><dd data-cfg="weeklyHours">~22 hours</dd>
+          <dt>Seats</dt><dd data-cfg="seats">10 per batch</dd>
+          <dt>Fee</dt><dd data-cfg="feeTotalLine">₹1,20,000 total</dd>
           <dt>On completion</dt><dd>Experience certificate</dd>
-          <dt>Applications close</dt><dd>20 Sep 2026</dd>
-          <dt>Batch begins</dt><dd>05 Oct 2026</dd>
+          <dt>Applications close</dt><dd data-cfg="applicationsClose">20 Sep 2026</dd>
+          <dt>Batch begins</dt><dd data-cfg="batchBegins">05 Oct 2026</dd>
         </dl>
       </div>
     </div>
@@ -402,9 +402,9 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
       <h2>An internship, not a course. You are given work, not lectures.</h2>
       <p class="sec-sub">Fresh graduates are caught in the usual trap: no job without experience, no experience without a job. This program hands you the experience directly — six months of real tickets in a real codebase, reviewed by an engineer who has shipped software for a decade, with the certificate and project letter to show for it at the end.</p>
       <div class="strip">
-        <div><span class="n">10</span><span class="l">interns per batch, so every PR gets read</span></div>
+        <div><span class="n" data-cfg="seatsNumber">10</span><span class="l">interns per batch, so every PR gets read</span></div>
         <div><span class="n">6</span><span class="l">months of continuous project work</span></div>
-        <div><span class="n">~22</span><span class="l">hours a week, evenings and Saturday</span></div>
+        <div><span class="n" data-cfg="weeklyHoursNumber">~22</span><span class="l">hours a week, evenings and Saturday</span></div>
         <div><span class="n">2</span><span class="l">documents at the end: certificate + project letter</span></div>
       </div>
     </div>
@@ -416,10 +416,10 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
       <h2>Evenings with your mentor, daylight hours left alone</h2>
       <p class="sec-sub">Part time by design, so a final-year student or someone in a first job can do this properly. Live sessions are on video and are not recorded — that is what keeps them a working conversation rather than a broadcast.</p>
       <div class="rhythm">
-        <div><span class="day">Mon</span><h4>Sprint planning</h4><p>19:30–21:30 IST. Tickets assigned, estimates argued, blockers named.</p></div>
-        <div><span class="day">Tue–Thu</span><h4>Build &amp; pairing</h4><p>19:30–21:30 IST. Standup, then live pairing and mentor review of open pull requests.</p></div>
-        <div><span class="day">Fri</span><h4>Code review</h4><p>19:30–21:30 IST. You review two peers on screen share and defend your own work.</p></div>
-        <div><span class="day">Sat</span><h4>Concept lab &amp; demo</h4><p>10:00–13:00 IST. The week's new topic taught properly, then demos.</p></div>
+        <div><span class="day">Mon</span><h4>Sprint planning</h4><p><span data-cfg="sessionTime">19:30–21:30 IST</span>. Tickets assigned, estimates argued, blockers named.</p></div>
+        <div><span class="day">Tue–Thu</span><h4>Build &amp; pairing</h4><p><span data-cfg="sessionTime">19:30–21:30 IST</span>. Standup, then live pairing and mentor review of open pull requests.</p></div>
+        <div><span class="day">Fri</span><h4>Code review</h4><p><span data-cfg="sessionTime">19:30–21:30 IST</span>. You review two peers on screen share and defend your own work.</p></div>
+        <div><span class="day">Sat</span><h4>Concept lab &amp; demo</h4><p><span data-cfg="satTime">10:00–13:00 IST</span>. The week's new topic taught properly, then demos.</p></div>
         <div><span class="day">Your own time</span><h4>Project work</h4><p>Roughly 10 hours a week on your tickets, whenever it suits you.</p></div>
       </div>
 
@@ -440,8 +440,8 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
               <dt>Laptop</dt><dd>8 GB RAM, admin rights</dd>
               <dt>Internet</dt><dd>10 Mbps, stable</dd>
               <dt>Webcam &amp; mic</dt><dd>On during sessions</dd>
-              <dt>Evenings free</dt><dd>Mon–Fri, 19:30–21:30 IST</dd>
-              <dt>Attendance</dt><dd>85% to be certified</dd>
+              <dt>Evenings free</dt><dd data-cfg="eveningsFree">Mon–Fri, 19:30–21:30 IST</dd>
+              <dt>Attendance</dt><dd data-cfg="attendanceBar">85% to be certified</dd>
             </dl>
           </div>
           <p class="hint" style="margin-top:10px">Everything else — repositories, cloud environments, tooling and licences — is provided.</p>
@@ -453,7 +453,7 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
   <section id="fees">
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">03 / Fee</span></div>
-      <h2>₹1,20,000 for the six months</h2>
+      <h2><span data-cfg="feeTotal">₹1,20,000</span> <span data-cfg="feeTaxNote">plus 18% GST</span> for the six months</h2>
       <p class="sec-sub">Paid monthly, not upfront. Nothing is due until you have been offered a seat — applying and interviewing is free.</p>
       <div class="cols">
         <div>
@@ -463,19 +463,20 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
               <span class="pill">Per seat</span>
             </div>
             <dl>
-              <dt>Total fee</dt><dd>₹1,20,000</dd>
-              <dt>Booking amount</dt><dd>₹20,000</dd>
-              <dt>Then</dt><dd>₹20,000 × 5 months</dd>
-              <dt>Due date</dt><dd>5th of each month</dd>
-              <dt>Taxes</dt><dd>As applicable</dd>
+              <dt>Programme fee</dt><dd data-cfg="feeTotal">₹1,20,000</dd>
+              <dt>GST at 18%</dt><dd data-cfg="feeGst">₹21,600</dd>
+              <dt>Total payable</dt><dd data-cfg="feeGrandTotal">₹1,41,600</dd>
+              <dt>Booking amount</dt><dd data-cfg="feeBooking">₹23,600</dd>
+              <dt>Then</dt><dd data-cfg="feeInstalments">₹23,600 × 5 months</dd>
+              <dt>Due date</dt><dd data-cfg="feeDueDate">5th of each month</dd>
             </dl>
           </div>
-          <p class="hint" style="margin-top:10px">The booking amount confirms your seat and counts as month one. Withdraw within the first 10 days of the batch and the remaining instalments are cancelled; the booking amount is not refunded.</p>
+          <p class="hint" style="margin-top:10px" data-cfg="refundNote">The booking amount confirms your seat and counts as month one. Withdraw within the first 10 days of the batch and the remaining instalments are cancelled; the booking amount is not refunded.</p>
         </div>
         <div>
           <h3 style="font-size:var(--step-1);margin-bottom:4px">What the fee covers</h3>
           <ul class="checklist">
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Roughly <b>190 hours of live mentor time</b> across six months, in a group of ten.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Roughly <b data-cfg="mentorHours">190 hours of live mentor time</b> across six months, in a group of ten.</span></li>
             <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Individual review</b> of every pull request, plus a written monthly assessment.</span></li>
             <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Repositories, cloud environments and tooling</b> for the whole internship.</span></li>
             <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>The exit fortnight</b> — portfolio, resume, system design practice and mock interviews.</span></li>
@@ -512,7 +513,7 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
       <div class="factcard" style="margin-top:32px">
         <div class="factcard-head"><span class="eyebrow">Both are issued only if</span></div>
         <dl>
-          <dt>Attendance</dt><dd>85% of live sessions</dd>
+          <dt>Attendance</dt><dd data-cfg="attendanceCert">85% of live sessions</dd>
           <dt>Monthly milestones</dt><dd>Each accepted at review</dd>
           <dt>Final module</dt><dd>Demonstrated and documented</dd>
           <dt>Fee</dt><dd>Fully paid</dd>
@@ -566,7 +567,7 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
   <section id="apply">
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">07 / Application form</span></div>
-      <h2>Apply for Batch 03</h2>
+      <h2>Apply for <span data-cfg="batchName">Batch 03</span></h2>
       <p class="sec-sub">Five short steps, and no payment at this stage. Nothing is submitted until you review it on the last screen — your answers are kept in this browser so you can close the tab and come back.</p>
 
       <form class="form-shell" id="appform" novalidate>
@@ -695,10 +696,10 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
         <!-- STEP 4 -->
         <div class="panel" id="step-3" hidden>
           <h3>Commitment, setup and fee</h3>
-          <p class="panel-sub">Live sessions are Mon–Fri 19:30–21:30 IST plus Saturday morning, and the fee is ₹1,20,000 over six months. Better to find a mismatch now than in month two.</p>
+          <p class="panel-sub">Live sessions are <span data-cfg="sessionSchedule">Mon–Fri 19:30–21:30 IST plus Saturday morning</span>, and the fee is <span data-cfg="feeTotal">₹1,20,000</span> <span data-cfg="feeTaxNote">plus 18% GST</span> over six months. Better to find a mismatch now than in month two.</p>
           <div class="formerr" data-formerr>Some fields need attention. They are marked below.</div>
           <div class="grid2">
-            <div class="field"><label for="start">Can you start on 5 October 2026? <span class="req">*</span></label>
+            <div class="field"><label for="start">Can you start on <span data-cfg="batchBeginsLong">5 October 2026</span>? <span class="req">*</span></label>
               <select id="start" name="start" required>
                 <option value="">Select an answer</option>
                 <option>Yes, from day one</option>
@@ -741,9 +742,9 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
             <div class="field"><label for="payplan">Preferred payment schedule <span class="req">*</span></label>
               <select id="payplan" name="payplan" required>
                 <option value="">Select an answer</option>
-                <option>Monthly — ₹20,000 × 6</option>
-                <option>Two halves — ₹60,000 × 2</option>
-                <option>One payment — ₹1,20,000</option>
+                <option data-cfg="payplanA">Monthly — ₹23,600 × 6</option>
+                <option data-cfg="payplanB">Two halves — ₹70,800 × 2</option>
+                <option data-cfg="payplanC">One payment — ₹1,41,600</option>
                 <option>I would like to discuss this</option>
               </select><span class="err" data-err>Pick the schedule that suits you — it is not binding.</span></div>
           </div>
@@ -767,13 +768,13 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
 
           <div class="field" id="feeField">
             <label class="consent"><input type="checkbox" id="feeack" name="feeack" required>
-              <span>I understand the fee is <b>₹1,20,000</b> for the six months, that nothing is payable unless I am offered a seat and accept it, and that the booking amount is not refundable once the batch begins. <span class="req">*</span></span></label>
+              <span>I understand the fee is <b data-cfg="feeTotal">₹1,20,000</b> <b data-cfg="feeTaxNote">plus 18% GST</b> for the six months, that nothing is payable unless I am offered a seat and accept it, and that payments made are not refundable. <span class="req">*</span></span></label>
             <span class="err" data-err>Please confirm you have read the fee terms.</span>
           </div>
 
           <div class="field" id="consentField" style="margin-bottom:0">
             <label class="consent"><input type="checkbox" id="consent" name="consent" required>
-              <span>I confirm the information above is accurate and I agree to AMPM Enterprises contacting me about this application and storing these details for the selection process. <span class="req">*</span></span></label>
+              <span>I confirm the information above is accurate and I agree to AMPM Enterprises contacting me about this application and storing these details for the selection process, as set out in the <a href="#privacy">privacy note</a>. <span class="req">*</span></span></label>
             <span class="err" data-err>Please confirm before submitting.</span>
           </div>
         </div>
@@ -815,15 +816,40 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
     </div>
   </section>
 
+  <section id="privacy">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">08 / Your data</span></div>
+      <h2>What we do with what you tell us</h2>
+      <p class="sec-sub">Short version: your application is read by the mentor, kept in a private spreadsheet, never sold or shared, and deleted the moment you ask.</p>
+      <div class="cols">
+        <div>
+          <ul class="checklist" style="margin-top:0">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>What we collect.</b> Only what you type into the form — your name, email, mobile, city, education, links you choose to share, your self-rating, your availability and your written statement. Nothing else. No tracking scripts, no advertising cookies, no analytics.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Where it goes.</b> A private Google Sheet belonging to AMPM Enterprises, readable by the mentor running selection. It is not sold, rented or shared with any third party.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>What it is used for.</b> Assessing this application, contacting you about it, and — unless you tell us otherwise — letting you know when a later batch opens.</span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="checklist" style="margin-top:0">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Your half-finished application</b> is saved in your own browser so you can close the tab and return. It stays on your device and reaches us only when you press submit.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>How long we keep it.</b> Until you ask us to delete it. We hold applications so we can consider you for later batches rather than making you start again.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Asking us to delete it.</b> Email <a href="mailto:internships@singularitysolutions.co.in" data-cfg="contactEmail" data-cfg-mailto="contactEmail">internships@singularitysolutions.co.in</a> with the reference number from your confirmation. We will remove your application within 30 days and confirm when it is done. You can also ask for a copy of what we hold, or have it corrected.</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:18px">AMPM Enterprises is the data controller for this form. Questions about any of the above go to the same address.</p>
+    </div>
+  </section>
+
   <section id="faq">
     <div class="wrap">
-      <div class="sec-head"><span class="eyebrow">08 / Questions</span></div>
+      <div class="sec-head"><span class="eyebrow">09 / Questions</span></div>
       <h2>Before you apply</h2>
       <div class="faq">
         <details><summary>Is a job guaranteed at the end?<span></span></summary><p>No. Nobody honest can guarantee you a job, and a programme that does is selling you something else. What is committed to here is six months of real project work, a mentor who reviews everything you write, an experience certificate and project letter, and two weeks of interview preparation. Whether AMPM Enterprises has an opening when your batch finishes depends on the year; interns are considered first when there is one.</p></details>
         <details><summary>Why does an internship cost money?<span></span></summary><p>Because you are not producing enough value in month one to be paid for it, and a senior engineer's time spent reviewing your work has a real cost. Ten seats is the cap for exactly that reason. The honest framing: you are buying six months of supervised experience and the record of it, not selling your labour.</p></details>
-        <details><summary>When do I actually pay?<span></span></summary><p>Only after you are offered a seat and accept it. The application, the screening call and the technical task cost nothing. The booking amount of ₹20,000 confirms your seat and counts as the first month; the remaining ₹1,00,000 is paid in five monthly instalments on the 5th.</p></details>
-        <details><summary>What if I drop out halfway?<span></span></summary><p>You stop paying the remaining instalments — you are never liable for the rest of the fee. Instalments already paid are not refunded, and no certificate is issued for a partial internship. Withdraw within the first 10 days and only the booking amount is kept.</p></details>
+        <details><summary>When do I actually pay?<span></span></summary><p data-cfg="faqPayment">Only after you are offered a seat and accept it. The application, the screening call and the technical task cost nothing. The booking amount of ₹20,000 confirms your seat and counts as the first month; the remaining ₹1,00,000 is paid in five monthly instalments on the 5th.</p></details>
+        <details><summary>What if I drop out halfway?<span></span></summary><p data-cfg="faqRefund">You stop paying the remaining instalments — you are never liable for the rest of the fee. Instalments already paid are not refunded, and no certificate is issued for a partial internship. Withdraw within the first 10 days and only the booking amount is kept.</p></details>
         <details><summary>Can I do this alongside a job or final-year classes?<span></span></summary><p>Yes — that is why it runs in the evenings. Budget about 22 hours a week: ten live hours and roughly ten to twelve on your own tickets. Interns who treat the personal hours as optional are the ones who miss milestones.</p></details>
         <details><summary>Are the sessions recorded?<span></span></summary><p>No. Every session is live, which is what allows people to ask the naive question and show broken code. The trade is that attendance matters — 85% is the bar for certification, and missed sessions are caught up with the mentor in office hours.</p></details>
         <details><summary>Is the certificate a real experience certificate?<span></span></summary><p>It is issued by AMPM Enterprises, on letterhead, stating the role and the six-month period, with a verification ID and a contact for employers who ask. It records an internship — not employment — and it says so. The project letter beside it is what gives a recruiter something concrete to ask you about.</p></details>
@@ -835,10 +861,10 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
 
 <footer>
   <div class="wrap foot-in">
-    <span>AMPM Enterprises &middot; Industry Internship, Batch 03 &middot; Applications close 20 September 2026</span>
+    <span>AMPM Enterprises &middot; Industry Internship, <span data-cfg="batchName">Batch 03</span> &middot; Applications close <span data-cfg="applicationsCloseLong">20 September 2026</span></span>
     <a class="btn btn-sm" href="#apply">Apply</a>
   </div>
-  <div class="wrap"><p class="demo-note">Applications are sent to AMPM Enterprises and reviewed by the mentor. Questions: <a href="mailto:internships@example.com">internships@example.com</a>.</p></div>
+  <div class="wrap"><p class="demo-note">Applications are sent to AMPM Enterprises and reviewed by the mentor. Questions: <a href="mailto:internships@singularitysolutions.co.in" data-cfg="contactEmail" data-cfg-mailto="contactEmail">internships@singularitysolutions.co.in</a>. How we handle your data: <a href="#privacy">privacy note</a>.</p></div>
 </footer>
 
 
@@ -846,12 +872,47 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
 /* ======================================================================
    CONFIGURATION — the only part you need to edit.
    1. AMPM_ENDPOINT : the /exec URL of your Google Apps Script web app.
-   2. AMPM_CONTACT  : email shown to an applicant if sending ever fails.
+   2. AMPM_CONTACT  : fallback contact email. The live value comes from the
+      Settings tab (contactEmail); this is only used before the sheet loads.
    3. AMPM_BATCH    : label written into the sheet with every application.
    ====================================================================== */
 window.AMPM_ENDPOINT = "https://script.google.com/macros/s/AKfycbz3od7_myoXqJbJQIohKZDCuVdnsGuwjw9wwe7HUuNp5L4macffn5bRb5vxB33WMp1HJA/exec";
-window.AMPM_CONTACT  = "ampm.enterprises2023@gmail.com";
+window.AMPM_CONTACT  = "internships@singularitysolutions.co.in";
 window.AMPM_BATCH    = "Batch 03";
+</script>
+
+<script>
+/* ----------------------------------------------------------------------
+   Live settings, read from the "Settings" tab of the Google Sheet.
+   Loaded as JSONP so no CORS configuration is needed. If the sheet is
+   unreachable the values already written into this page are simply kept.
+   ---------------------------------------------------------------------- */
+(function(){
+  var url=window.AMPM_ENDPOINT||"";
+  window.AMPM_CFG=null;
+  if(!url||url.indexOf("PASTE_")===0)return;
+  window.__ampmConfig=function(cfg){
+    if(!cfg||typeof cfg!=="object")return;
+    window.AMPM_CFG=cfg;
+    if(cfg.contactEmail&&String(cfg.contactEmail).trim())window.AMPM_CONTACT=String(cfg.contactEmail).trim();
+    Object.keys(cfg).forEach(function(key){
+      var v=cfg[key];
+      if(v===null||v===undefined||String(v).trim()==="")return;
+      v=String(v);
+      Array.prototype.forEach.call(document.querySelectorAll('[data-cfg="'+key+'"]'),function(el){
+        el.textContent=v;
+        if(el.tagName==="OPTION")el.value=v;
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-cfg-mailto="'+key+'"]'),function(el){
+        el.setAttribute("href","mailto:"+v);
+      });
+    });
+  };
+  var s=document.createElement("script");
+  s.src=url+(url.indexOf("?")<0?"?":"&")+"callback=__ampmConfig&t="+Date.now();
+  s.async=true;
+  document.body.appendChild(s);
+})();
 </script>
 
 <script>
@@ -1057,7 +1118,7 @@ window.AMPM_BATCH    = "Batch 03";
       ["Commitment, setup & fee",[["Start availability",val("start")],["Evening hours",val("hours")],
         ["Internet",val("internet")],["Laptop",val("device")],
         ["Who would pay",val("payer")],["Preferred schedule",val("payplan")],
-        ["Fee terms",document.getElementById("feeack").checked?"Read and understood (₹1,20,000 over six months)":"Not confirmed"],
+        ["Fee terms",document.getElementById("feeack").checked?"Read and understood (₹1,20,000 + 18% GST over six months)":"Not confirmed"],
         ["Statement",wordCount(document.getElementById("why").value)+" words submitted"],
         ["Heard about us via",val("source")]]]
     ];
@@ -1087,7 +1148,7 @@ window.AMPM_BATCH    = "Batch 03";
       start:raw("start"),hours:raw("hours"),internet:raw("internet"),device:raw("device"),
       payer:raw("payer"),payplan:raw("payplan"),feeack:checked("feeack"),
       why:raw("why"),words:wordCount(raw("why")),source:raw("source"),consent:checked("consent"),
-      website:raw("website"),batch:(window.AMPM_BATCH||""),page:location.href
+      website:raw("website"),batch:((window.AMPM_CFG&&window.AMPM_CFG.batchName)||window.AMPM_BATCH||""),page:location.href
     };
   }
   function send(data){
