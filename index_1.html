@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A paid, mentor-led six-month software engineering internship from AMPM Enterprises. Ten seats per batch, live online, experience certificate on completion.">
+<title>AMPM Industry Internship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#F1F2ED;
+  --surface:#FBFBF7;
+  --surface-2:#E9EBE4;
+  --ink:#14201C;
+  --muted:#5B6A64;
+  --line:#D6D8CF;
+  --line-strong:#B9BEB2;
+  --accent:#0B5C4E;
+  --accent-ink:#FBFBF7;
+  --accent-soft:#DFEAE4;
+  --gold:#7E641C;
+  --gold-soft:#EFE6C8;
+  --danger:#9C3218;
+  --danger-soft:#F6E1DA;
+  --shadow:0 1px 2px rgba(20,32,28,.05), 0 12px 28px -18px rgba(20,32,28,.35);
+  --r:4px;
+  --step--1:.8125rem;
+  --step-0:1rem;
+  --step-1:1.1875rem;
+  --step-2:1.5rem;
+  --step-3:2rem;
+  --step-4:2.75rem;
+  --step-5:3.75rem;
+  --maxw:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1513;
+    --surface:#161E1B;
+    --surface-2:#1D2724;
+    --ink:#E7EBE6;
+    --muted:#93A29B;
+    --line:#263230;
+    --line-strong:#3A4A46;
+    --accent:#4FB79B;
+    --accent-ink:#0B1614;
+    --accent-soft:#17302A;
+    --gold:#D9B764;
+    --gold-soft:#2B2415;
+    --danger:#E88C72;
+    --danger-soft:#31201B;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 30px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1513;
+  --surface:#161E1B;
+  --surface-2:#1D2724;
+  --ink:#E7EBE6;
+  --muted:#93A29B;
+  --line:#263230;
+  --line-strong:#3A4A46;
+  --accent:#4FB79B;
+  --accent-ink:#0B1614;
+  --accent-soft:#17302A;
+  --gold:#D9B764;
+  --gold-soft:#2B2415;
+  --danger:#E88C72;
+  --danger-soft:#31201B;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 30px -20px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+  font-size:var(--step-0);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.1;text-wrap:balance;margin:0;font-variation-settings:"SOFT" 0,"WONK" 0}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:where(a,button,input,select,textarea,summary):focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;border-radius:2px;
+}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;gap:24px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Fraunces",Georgia,serif;font-weight:700;letter-spacing:-.01em;text-decoration:none;font-size:1.0625rem}
+.brand-mark{width:22px;height:22px;flex:none}
+.nav-links{display:flex;gap:20px;margin-left:auto;align-items:center}
+.nav-links a{font-size:.875rem;color:var(--muted);text-decoration:none}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.btn{color:var(--accent-ink)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 18px;border-radius:var(--r);border:1px solid transparent;
+  background:var(--accent);color:var(--accent-ink);
+  font-weight:600;font-size:.9375rem;text-decoration:none;cursor:pointer;
+  transition:transform .12s ease, filter .12s ease;
+}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn-sm{padding:7px 14px;font-size:.8125rem}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn-ghost:hover{background:var(--surface-2);filter:none}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;filter:none}
+@media (max-width:860px){.nav-links a{display:none}.nav-links .btn{display:inline-flex}}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:56px;align-items:start}
+.hero h1{font-size:var(--step-5);letter-spacing:-.025em;margin:18px 0 0}
+.hero h1 em{font-style:italic;color:var(--accent);font-variation-settings:"WONK" 1}
+.hero-lede{margin-top:22px;font-size:var(--step-1);color:var(--muted);max-width:34ch}
+.hero-cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;align-items:center}
+.hero-note{font-size:.8125rem;color:var(--muted)}
+.factcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.factcard-head{
+  padding:12px 18px;border-bottom:1px solid var(--line);background:var(--surface-2);
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.factcard dl{margin:0;display:grid;grid-template-columns:auto 1fr}
+.factcard dt{padding:11px 18px;font-size:.8125rem;color:var(--muted);border-bottom:1px solid var(--line)}
+.factcard dd{padding:11px 18px;margin:0;text-align:right;font-size:.875rem;font-weight:500;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.factcard dl>:nth-last-child(-n+2){border-bottom:0}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;
+  font-family:"JetBrains Mono",monospace;font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--gold-soft);color:var(--gold);
+}
+.pill.open{background:var(--accent-soft);color:var(--accent)}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+@media (max-width:860px){
+  .hero{padding:44px 0 40px}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  :root{--step-5:2.75rem;--step-4:2.125rem;--step-3:1.625rem}
+}
+
+/* ---------- generic section ---------- */
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.sec-head h2{font-size:var(--step-3);letter-spacing:-.015em}
+.sec-sub{color:var(--muted);max-width:62ch;margin-top:12px}
+
+/* ---------- outcomes strip ---------- */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:32px}
+.strip div{background:var(--surface);padding:20px 18px}
+.strip .n{font-family:"Fraunces",serif;font-size:var(--step-3);color:var(--accent);font-variant-numeric:tabular-nums;display:block}
+.strip .l{font-size:.8125rem;color:var(--muted);margin-top:4px;display:block}
+@media (max-width:720px){.strip{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- curriculum ---------- */
+.phase-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px}
+.phase-legend span{display:inline-flex;align-items:center;gap:7px;font-size:.8125rem;color:var(--muted)}
+.swatch{width:10px;height:10px;border-radius:2px;flex:none}
+.months{margin-top:36px;display:flex;flex-direction:column;gap:14px}
+.month{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  display:grid;grid-template-columns:96px 1fr;overflow:hidden;
+}
+.month-num{
+  border-right:1px solid var(--line);padding:22px 18px;background:var(--surface-2);
+  display:flex;flex-direction:column;gap:6px;
+}
+.month-num b{font-family:"Fraunces",serif;font-size:1.875rem;line-height:1;font-variant-numeric:tabular-nums}
+.month-num .ph{font-family:"JetBrains Mono",monospace;font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.month-body{padding:22px 24px;display:grid;grid-template-columns:1fr 260px;gap:28px}
+.month-body h3{font-size:var(--step-1);margin-bottom:8px}
+.month-body p{color:var(--muted);font-size:.9375rem;max-width:58ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{
+  font-family:"JetBrains Mono",monospace;font-size:.6875rem;padding:3px 8px;
+  border:1px solid var(--line-strong);border-radius:2px;color:var(--muted);
+}
+.ship{border-left:2px solid var(--accent);padding-left:14px;align-self:start}
+.ship .eyebrow{display:block;margin-bottom:4px}
+.ship p{font-size:.875rem;color:var(--ink);max-width:none}
+@media (max-width:860px){
+  .month{grid-template-columns:1fr}
+  .month-num{flex-direction:row;align-items:baseline;gap:12px;border-right:0;border-bottom:1px solid var(--line);padding:12px 18px}
+  .month-body{grid-template-columns:1fr;padding:18px}
+}
+
+/* ---------- week rhythm ---------- */
+.rhythm{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:32px}
+.rhythm div{background:var(--surface);padding:18px 16px}
+.rhythm h4{font-size:.9375rem;font-family:"Archivo",sans-serif;font-weight:600;margin-bottom:6px}
+.rhythm p{font-size:.8125rem;color:var(--muted)}
+.rhythm .day{font-family:"JetBrains Mono",monospace;font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px}
+@media (max-width:860px){.rhythm{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.rhythm{grid-template-columns:1fr}}
+
+/* ---------- two column ---------- */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:32px}}
+.checklist{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:10px}
+.checklist li{display:flex;gap:10px;font-size:.9375rem;color:var(--muted)}
+.checklist svg{flex:none;margin-top:4px;color:var(--accent)}
+.checklist b{color:var(--ink);font-weight:600}
+
+/* ---------- selection steps ---------- */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:32px}
+.steps li{list-style:none;padding-top:16px;border-top:2px solid var(--line-strong)}
+.steps li:first-child{border-color:var(--accent)}
+.steps .k{font-family:"JetBrains Mono",monospace;font-size:.6875rem;color:var(--muted);letter-spacing:.1em}
+.steps h4{font-family:"Archivo",sans-serif;font-size:1rem;font-weight:600;margin:8px 0 6px}
+.steps p{font-size:.875rem;color:var(--muted)}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* ---------- faq ---------- */
+.faq{margin-top:28px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{
+  cursor:pointer;list-style:none;padding:16px 0;display:flex;justify-content:space-between;
+  gap:20px;font-weight:500;align-items:baseline;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:"JetBrains Mono",monospace;color:var(--muted);flex:none}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 18px;color:var(--muted);max-width:70ch;font-size:.9375rem}
+
+/* ---------- form ---------- */
+#apply{background:var(--surface-2)}
+.form-shell{
+  margin-top:32px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;
+}
+.progress{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--line);background:var(--surface-2)}
+.progress button{
+  background:none;border:0;border-bottom:2px solid transparent;padding:14px 10px;text-align:left;
+  cursor:pointer;display:flex;flex-direction:column;gap:2px;
+}
+.progress button[disabled]{cursor:default}
+.progress .pk{font-family:"JetBrains Mono",monospace;font-size:.625rem;letter-spacing:.1em;color:var(--muted)}
+.progress .pl{font-size:.8125rem;color:var(--muted);font-weight:500}
+.progress button[aria-current="true"]{border-bottom-color:var(--accent);background:var(--surface)}
+.progress button[aria-current="true"] .pl{color:var(--ink)}
+.progress button[data-done="1"] .pk{color:var(--accent)}
+@media (max-width:720px){
+  .progress{grid-template-columns:repeat(5,1fr)}
+  .progress .pl{display:none}
+  .progress button{align-items:center;padding:12px 4px}
+}
+.panel{padding:30px 32px}
+.panel[hidden]{display:none}
+.panel h3{font-size:var(--step-2);margin-bottom:6px}
+.panel-sub{color:var(--muted);font-size:.9375rem;margin-bottom:26px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}.panel{padding:24px 20px}}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.field label{font-size:.875rem;font-weight:500}
+.req{color:var(--danger)}
+.hint{font-size:.75rem;color:var(--muted)}
+input[type=text],input[type=email],input[type=tel],input[type=number],input[type=url],select,textarea{
+  width:100%;padding:10px 12px;border:1px solid var(--line-strong);border-radius:var(--r);
+  background:var(--surface);color:var(--ink);font:inherit;font-size:.9375rem;
+}
+textarea{min-height:150px;resize:vertical;line-height:1.55}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:38px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--danger);background:var(--danger-soft)}
+.err{font-size:.75rem;color:var(--danger);display:none}
+.field.invalid .err{display:block}
+fieldset{border:0;padding:0;margin:0 0 20px}
+legend{font-size:.875rem;font-weight:500;padding:0;margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;width:100%;height:100%;left:0;top:0;margin:0;cursor:pointer}
+.opt span{
+  display:block;padding:8px 14px;border:1px solid var(--line-strong);border-radius:var(--r);
+  font-size:.875rem;cursor:pointer;transition:background .12s ease,border-color .12s ease;
+}
+.opt input:checked + span{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:500}
+.opt input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.tracks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:720px){.tracks{grid-template-columns:1fr}}
+.track{position:relative}
+.track input{position:absolute;opacity:0;width:100%;height:100%;left:0;top:0;margin:0;cursor:pointer}
+.track span{display:block;padding:16px;border:1px solid var(--line-strong);border-radius:var(--r);cursor:pointer;height:100%}
+.track b{display:block;font-size:.9375rem;margin-bottom:4px}
+.track small{color:var(--muted);font-size:.8125rem;line-height:1.5;display:block}
+.track input:checked + span{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.track input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.selflevel{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.selflevel:last-of-type{border-bottom:0}
+.selflevel .sk{font-size:.875rem}
+.counter{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--muted);text-align:right}
+.counter.over{color:var(--danger)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.875rem;color:var(--muted);margin-top:8px}
+.consent input{margin-top:4px;accent-color:var(--accent);width:16px;height:16px;flex:none}
+.actions{display:flex;justify-content:space-between;gap:12px;padding:20px 32px;border-top:1px solid var(--line);background:var(--surface-2);align-items:center}
+@media (max-width:720px){.actions{padding:16px 20px}}
+.formerr{
+  display:none;margin-bottom:20px;padding:12px 14px;border-radius:var(--r);
+  background:var(--danger-soft);border:1px solid var(--danger);color:var(--danger);font-size:.875rem;
+}
+.formerr.show{display:block}
+/* review */
+.review dl{margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.review .row{display:grid;grid-template-columns:210px 1fr;border-bottom:1px solid var(--line)}
+.review .row:last-child{border-bottom:0}
+.review dt{padding:11px 16px;font-size:.8125rem;color:var(--muted);background:var(--surface-2)}
+.review dd{padding:11px 16px;margin:0;font-size:.875rem;word-break:break-word}
+.review h4{font-family:"Archivo",sans-serif;font-size:.8125rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:24px 0 10px}
+.review h4:first-of-type{margin-top:0}
+@media (max-width:600px){.review .row{grid-template-columns:1fr}.review dt{padding-bottom:0;background:none}}
+/* success */
+.done{padding:56px 32px;text-align:center}
+.done .tick{width:52px;height:52px;margin:0 auto 20px;color:var(--accent)}
+.done h3{font-size:var(--step-3)}
+.done p{color:var(--muted);max-width:48ch;margin:14px auto 0}
+.refbox{
+  display:inline-flex;flex-direction:column;gap:4px;margin-top:28px;padding:14px 26px;
+  border:1px dashed var(--line-strong);border-radius:var(--r);background:var(--surface-2);
+}
+.refbox b{font-family:"JetBrains Mono",monospace;font-size:1.125rem;letter-spacing:.06em}
+.next{margin-top:32px;text-align:left;max-width:440px;margin-inline:auto}
+
+footer{padding:40px 0 56px;color:var(--muted);font-size:.875rem}
+.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.demo-note{margin-top:14px;font-size:.75rem;max-width:70ch}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="2" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M6 15.5 10 8l4 7.5M8 13h4M16 8v8" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      AMPM Internship
+    </a>
+    <div class="nav-links">
+      <a href="#program">Program</a>
+      <a href="#fees">Fee</a>
+      <a href="#certificate">Certificate</a>
+      <a href="#selection">Getting in</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-sm" href="#apply">Apply</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span data-cfg="batchName">Batch 03</span> &middot; <span data-cfg="seatsNumber">10</span> seats &middot; Live online, part time</span>
+        <h1>Six months inside a <em>real engineering team</em>.</h1>
+        <p class="hero-lede">A paid, mentor-led internship for fresh engineers. You work on live software alongside a working engineer, and you finish with a six-month experience certificate and a signed project letter.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#apply">Apply for a seat</a>
+          <a class="btn btn-ghost" href="#fees">Fee &amp; what's included</a>
+        </div>
+        <p class="hero-note" style="margin-top:16px">Ten seats per batch. Applying takes about 15 minutes and costs nothing.</p>
+      </div>
+      <div class="factcard">
+        <div class="factcard-head">
+          <span class="eyebrow"><span data-cfg="batchName">Batch 03</span> at a glance</span>
+          <span class="pill open"><span class="dot"></span><span data-cfg="statusLabel">Applications open</span></span>
+        </div>
+        <dl>
+          <dt>Duration</dt><dd data-cfg="duration">6 months</dd>
+          <dt>Format</dt><dd data-cfg="format">Live online, part time</dd>
+          <dt>Live sessions</dt><dd data-cfg="sessionDaysTime">Mon–Fri 19:30–21:30 IST</dd>
+          <dt>Weekly commitment</dt><dd data-cfg="weeklyHours">~22 hours</dd>
+          <dt>Seats</dt><dd data-cfg="seats">10 per batch</dd>
+          <dt>Fee</dt><dd data-cfg="feeTotalLine">₹1,20,000 total</dd>
+          <dt>On completion</dt><dd>Experience certificate</dd>
+          <dt>Applications close</dt><dd data-cfg="applicationsClose">20 Sep 2026</dd>
+          <dt>Batch begins</dt><dd data-cfg="batchBegins">05 Oct 2026</dd>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <section id="program">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">01 / What this is</span></div>
+      <h2>An internship, not a course. You are given work, not lectures.</h2>
+      <p class="sec-sub">Fresh graduates are caught in the usual trap: no job without experience, no experience without a job. This program hands you the experience directly — six months of real tickets in a real codebase, reviewed by an engineer who has shipped software for a decade, with the certificate and project letter to show for it at the end.</p>
+      <div class="strip">
+        <div><span class="n" data-cfg="seatsNumber">10</span><span class="l">interns per batch, so every PR gets read</span></div>
+        <div><span class="n">6</span><span class="l">months of continuous project work</span></div>
+        <div><span class="n" data-cfg="weeklyHoursNumber">~22</span><span class="l">hours a week, evenings and Saturday</span></div>
+        <div><span class="n">2</span><span class="l">documents at the end: certificate + project letter</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="week">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">02 / How the week runs</span></div>
+      <h2>Evenings with your mentor, daylight hours left alone</h2>
+      <p class="sec-sub">Part time by design, so a final-year student or someone in a first job can do this properly. Live sessions are on video and are not recorded — that is what keeps them a working conversation rather than a broadcast.</p>
+      <div class="rhythm">
+        <div><span class="day">Mon</span><h4>Sprint planning</h4><p><span data-cfg="sessionTime">19:30–21:30 IST</span>. Tickets assigned, estimates argued, blockers named.</p></div>
+        <div><span class="day">Tue–Thu</span><h4>Build &amp; pairing</h4><p><span data-cfg="sessionTime">19:30–21:30 IST</span>. Standup, then live pairing and mentor review of open pull requests.</p></div>
+        <div><span class="day">Fri</span><h4>Code review</h4><p><span data-cfg="sessionTime">19:30–21:30 IST</span>. You review two peers on screen share and defend your own work.</p></div>
+        <div><span class="day">Sat</span><h4>Concept lab &amp; demo</h4><p><span data-cfg="satTime">10:00–13:00 IST</span>. The week's new topic taught properly, then demos.</p></div>
+        <div><span class="day">Your own time</span><h4>Project work</h4><p>Roughly 10 hours a week on your tickets, whenever it suits you.</p></div>
+      </div>
+
+      <h3 style="font-size:var(--step-1);margin:44px 0 0">What "mentor-led" means here</h3>
+      <div class="cols" style="margin-top:16px">
+        <div>
+          <ul class="checklist" style="margin-top:0">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>A working engineer, not a trainer.</b> Ten interns per batch is the cap because every pull request is read and commented on by the mentor personally.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Real software, not exercises.</b> You work on live product code and internal tools under an NDA, the same way a new hire would.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>A monthly written review.</b> Where you stand, what to fix, in writing — the same record the project letter is drawn from at the end.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>A shared GitHub organisation and chat workspace</b> that stay open to you after the internship ends.</span></li>
+          </ul>
+        </div>
+        <div>
+          <span class="eyebrow">What you need at your end</span>
+          <div class="factcard" style="margin-top:12px">
+            <dl>
+              <dt>Laptop</dt><dd>8 GB RAM, admin rights</dd>
+              <dt>Internet</dt><dd>10 Mbps, stable</dd>
+              <dt>Webcam &amp; mic</dt><dd>On during sessions</dd>
+              <dt>Evenings free</dt><dd data-cfg="eveningsFree">Mon–Fri, 19:30–21:30 IST</dd>
+              <dt>Attendance</dt><dd data-cfg="attendanceBar">85% to be certified</dd>
+            </dl>
+          </div>
+          <p class="hint" style="margin-top:10px">Everything else — repositories, cloud environments, tooling and licences — is provided.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fees">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">03 / Fee</span></div>
+      <h2><span data-cfg="feeTotal">₹1,20,000</span> <span data-cfg="feeTaxNote">plus 18% GST</span> for the six months</h2>
+      <p class="sec-sub">Paid monthly, not upfront. Nothing is due until you have been offered a seat — applying and interviewing is free.</p>
+      <div class="cols">
+        <div>
+          <div class="factcard">
+            <div class="factcard-head">
+              <span class="eyebrow">Payment schedule</span>
+              <span class="pill">Per seat</span>
+            </div>
+            <dl>
+              <dt>Programme fee</dt><dd data-cfg="feeTotal">₹1,20,000</dd>
+              <dt>GST at 18%</dt><dd data-cfg="feeGst">₹21,600</dd>
+              <dt>Total payable</dt><dd data-cfg="feeGrandTotal">₹1,41,600</dd>
+              <dt>Booking amount</dt><dd data-cfg="feeBooking">₹23,600</dd>
+              <dt>Then</dt><dd data-cfg="feeInstalments">₹23,600 × 5 months</dd>
+              <dt>Due date</dt><dd data-cfg="feeDueDate">5th of each month</dd>
+            </dl>
+          </div>
+          <p class="hint" style="margin-top:10px" data-cfg="refundNote">The booking amount confirms your seat and counts as month one. Withdraw within the first 10 days of the batch and the remaining instalments are cancelled; the booking amount is not refunded.</p>
+        </div>
+        <div>
+          <h3 style="font-size:var(--step-1);margin-bottom:4px">What the fee covers</h3>
+          <ul class="checklist">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Roughly <b data-cfg="mentorHours">190 hours of live mentor time</b> across six months, in a group of ten.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Individual review</b> of every pull request, plus a written monthly assessment.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Repositories, cloud environments and tooling</b> for the whole internship.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>The exit fortnight</b> — portfolio, resume, system design practice and mock interviews.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Certificate and project letter</b> on completion, at no extra cost.</span></li>
+          </ul>
+          <h3 style="font-size:var(--step-1);margin:26px 0 4px">What it does not cover</h3>
+          <ul class="checklist">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Your own laptop and internet connection.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>A salary or stipend — this is a paid internship programme, not employment.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>A job offer or placement guarantee. Read the FAQ on this before you pay.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificate">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">04 / What you leave with</span></div>
+      <h2>An experience certificate that a recruiter can verify</h2>
+      <p class="sec-sub">Two documents, issued by AMPM Enterprises on the day the batch closes, on company letterhead and signed by your mentor.</p>
+      <div class="cols">
+        <div>
+          <span class="eyebrow">Document one</span>
+          <h3 style="font-size:var(--step-1);margin:6px 0 8px">Internship experience certificate</h3>
+          <p style="color:var(--muted);font-size:.9375rem">States your name, the role — Software Engineering Intern — the six-month period served, and that it was completed satisfactorily. Carries a verification ID and a contact for employers who want to confirm it.</p>
+        </div>
+        <div>
+          <span class="eyebrow">Document two</span>
+          <h3 style="font-size:var(--step-1);margin:6px 0 8px">Signed project letter</h3>
+          <p style="color:var(--muted);font-size:.9375rem">One page naming the modules you worked on, the stack you used and what you specifically built and owned — written from your monthly reviews. This is the document that answers the interview question your resume cannot.</p>
+        </div>
+      </div>
+      <div class="factcard" style="margin-top:32px">
+        <div class="factcard-head"><span class="eyebrow">Both are issued only if</span></div>
+        <dl>
+          <dt>Attendance</dt><dd data-cfg="attendanceCert">85% of live sessions</dd>
+          <dt>Monthly milestones</dt><dd>Each accepted at review</dd>
+          <dt>Final module</dt><dd>Demonstrated and documented</dd>
+          <dt>Fee</dt><dd>Fully paid</dd>
+        </dl>
+      </div>
+      <p class="hint" style="margin-top:10px">Falling short of the bar means no certificate. Saying so plainly is the reason the certificate means anything.</p>
+    </div>
+  </section>
+
+  <section id="eligibility">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">05 / Who this is for</span></div>
+      <h2>Eligibility</h2>
+      <div class="cols">
+        <div>
+          <h3 style="font-size:var(--step-1);margin-bottom:4px">You should apply if</h3>
+          <ul class="checklist">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>You are in your final year or already graduated</b> in engineering, computer applications or a related field.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>You can write a small program unaided</b> in any language. Everything beyond that is taught here.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>You can give about 22 hours a week</b> for six months, including the weekday evening sessions.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>You are anywhere in India</b> with your own laptop and a connection that holds through a session.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size:var(--step-1);margin-bottom:4px">What we do not require</h3>
+          <ul class="checklist">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>A minimum CGPA. We ask for it; we do not filter on it.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>A degree from a tier-one college, or a metro address.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Prior knowledge of any particular framework or cloud platform.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Payment of any kind to apply, to interview, or to hold your place while you decide.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="selection">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">06 / Getting a seat</span></div>
+      <h2>Four stages, about two weeks</h2>
+      <p class="sec-sub">Ten seats means most applicants will not get one. Everybody hears back either way, with a reason.</p>
+      <ol class="steps">
+        <li><span class="k">STAGE 01</span><h4>Application</h4><p>The form below. Read by the mentor, usually within four working days.</p></li>
+        <li><span class="k">STAGE 02</span><h4>Screening call</h4><p>Thirty minutes on video — your background, what you want from six months, and whether the hours are realistic.</p></li>
+        <li><span class="k">STAGE 03</span><h4>Short technical task</h4><p>A three-to-four hour take-home, then a walkthrough of your own code. Reasoning counts for more than completeness.</p></li>
+        <li><span class="k">STAGE 04</span><h4>Seat offer</h4><p>An offer letter with the schedule and fee terms. The seat is held for five days; the booking amount confirms it.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="apply">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">07 / Application form</span></div>
+      <h2>Apply for <span data-cfg="batchName">Batch 03</span></h2>
+      <p class="sec-sub">Five short steps, and no payment at this stage. Nothing is submitted until you review it on the last screen — your answers are kept in this browser so you can close the tab and come back.</p>
+
+      <form class="form-shell" id="appform" novalidate>
+        <div class="progress" role="tablist" aria-label="Application steps">
+          <button type="button" data-goto="0" aria-current="true"><span class="pk">01</span><span class="pl">You</span></button>
+          <button type="button" data-goto="1"><span class="pk">02</span><span class="pl">Education</span></button>
+          <button type="button" data-goto="2"><span class="pk">03</span><span class="pl">Skills</span></button>
+          <button type="button" data-goto="3"><span class="pk">04</span><span class="pl">Commitment</span></button>
+          <button type="button" data-goto="4"><span class="pk">05</span><span class="pl">Review</span></button>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="panel" id="step-0">
+          <h3>About you</h3>
+          <p class="panel-sub">Use the email address you check — every update goes there.</p>
+          <div class="formerr" data-formerr>Some fields need attention. They are marked below.</div>
+          <div class="grid2">
+            <div class="field"><label for="fullName">Full name <span class="req">*</span></label>
+              <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+              <span class="err" data-err>Enter your full name as it appears on your degree.</span></div>
+            <div class="field"><label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="err" data-err>Enter a valid email address, e.g. name@example.com</span></div>
+            <div class="field"><label for="phone">Mobile number <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" inputmode="numeric" autocomplete="tel" required>
+              <span class="hint">10 digits, no country code.</span>
+              <span class="err" data-err>Enter a 10-digit mobile number.</span></div>
+            <div class="field"><label for="city">Current city <span class="req">*</span></label>
+              <input type="text" id="city" name="city" autocomplete="address-level2" required>
+              <span class="err" data-err>Tell us which city you are applying from.</span></div>
+            <div class="field"><label for="github">GitHub profile</label>
+              <input type="url" id="github" name="github" placeholder="https://github.com/username">
+              <span class="err" data-err>That does not look like a full URL. Include https://</span></div>
+            <div class="field" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+              <label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+            <div class="field"><label for="linkedin">LinkedIn profile</label>
+              <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
+              <span class="err" data-err>That does not look like a full URL. Include https://</span></div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="panel" id="step-1" hidden>
+          <h3>Education</h3>
+          <p class="panel-sub">We ask so the first month can be pitched correctly, not to filter you out.</p>
+          <div class="formerr" data-formerr>Some fields need attention. They are marked below.</div>
+          <div class="grid2">
+            <div class="field"><label for="degree">Degree <span class="req">*</span></label>
+              <select id="degree" name="degree" required>
+                <option value="">Select a degree</option>
+                <option>B.E. / B.Tech</option><option>B.Sc. (Computer Science / IT)</option>
+                <option>BCA</option><option>M.E. / M.Tech</option><option>MCA</option><option>Diploma in Engineering</option><option>Other</option>
+              </select><span class="err" data-err>Choose the degree you hold or are completing.</span></div>
+            <div class="field"><label for="branch">Branch or specialisation <span class="req">*</span></label>
+              <input type="text" id="branch" name="branch" placeholder="e.g. Computer Engineering" required>
+              <span class="err" data-err>Enter your branch or specialisation.</span></div>
+            <div class="field"><label for="college">College or university <span class="req">*</span></label>
+              <input type="text" id="college" name="college" required>
+              <span class="err" data-err>Enter the institution's name.</span></div>
+            <div class="field"><label for="gradYear">Year of graduation <span class="req">*</span></label>
+              <select id="gradYear" name="gradYear" required>
+                <option value="">Select a year</option>
+                <option>2027 (final year)</option><option>2026</option><option>2025</option><option>2024</option><option>Earlier than 2024</option>
+              </select><span class="err" data-err>Select your graduation year.</span></div>
+            <div class="field"><label for="score">Aggregate score <span class="req">*</span></label>
+              <input type="text" id="score" name="score" placeholder="e.g. 7.8 CGPA or 74%" required>
+              <span class="err" data-err>Enter your CGPA or percentage.</span></div>
+            <div class="field"><label for="status">Current status <span class="req">*</span></label>
+              <select id="status" name="status" required>
+                <option value="">Select your status</option>
+                <option>Final year student</option><option>Graduated, not working</option>
+                <option>Graduated, working (non-technical)</option><option>Graduated, working (technical)</option>
+              </select><span class="err" data-err>Select what you are doing right now.</span></div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="panel" id="step-2" hidden>
+          <h3>Where you are technically</h3>
+          <p class="panel-sub">The internship is full-stack. Month one starts from wherever the batch actually is.</p>
+          <div class="formerr" data-formerr>Some fields need attention. They are marked below.</div>
+
+          <fieldset class="field" id="trackField">
+            <legend>What do you most want out of the six months? <span class="req">*</span></legend>
+            <div class="tracks">
+              <label class="track"><input type="radio" name="track" value="Real project experience" required>
+                <span><b>Real project experience</b><small>Work I can point to in an interview, and the certificate to back it.</small></span></label>
+              <label class="track"><input type="radio" name="track" value="Full-stack depth">
+                <span><b>Full-stack depth</b><small>To stop being a beginner in both halves of the stack.</small></span></label>
+              <label class="track"><input type="radio" name="track" value="Job readiness">
+                <span><b>Job readiness</b><small>Interviews, portfolio and the confidence to apply for engineering roles.</small></span></label>
+              <label class="track"><input type="radio" name="track" value="Team and process exposure">
+                <span><b>Team and process exposure</b><small>How reviews, sprints and releases actually work in a company.</small></span></label>
+            </div>
+            <span class="err" data-err>Pick the one that matters most to you.</span>
+          </fieldset>
+
+          <fieldset class="field" id="langField">
+            <legend>Languages you have written code in <span class="req">*</span></legend>
+            <div class="opts">
+              <label class="opt"><input type="checkbox" name="langs" value="C"><span>C</span></label>
+              <label class="opt"><input type="checkbox" name="langs" value="C++"><span>C++</span></label>
+              <label class="opt"><input type="checkbox" name="langs" value="Java"><span>Java</span></label>
+              <label class="opt"><input type="checkbox" name="langs" value="Python"><span>Python</span></label>
+              <label class="opt"><input type="checkbox" name="langs" value="JavaScript"><span>JavaScript</span></label>
+              <label class="opt"><input type="checkbox" name="langs" value="SQL"><span>SQL</span></label>
+              <label class="opt"><input type="checkbox" name="langs" value="Go"><span>Go</span></label>
+              <label class="opt"><input type="checkbox" name="langs" value="Other"><span>Other</span></label>
+            </div>
+            <span class="err" data-err>Select at least one — coursework counts.</span>
+          </fieldset>
+
+          <fieldset style="margin-bottom:20px">
+            <legend>Rate yourself honestly <span class="req">*</span></legend>
+            <p class="hint" style="margin-bottom:6px">There is no right answer. Beginners are taken in every batch.</p>
+            <div id="levels"></div>
+            <span class="err" data-err id="levelsErr" style="display:none">Rate every row before continuing.</span>
+          </fieldset>
+
+          <div class="field"><label for="project">Link to something you built</label>
+            <input type="url" id="project" name="project" placeholder="https://github.com/you/project">
+            <span class="hint">A repo, a deployed page, a college project — anything. Optional, but it helps.</span>
+            <span class="err" data-err>That does not look like a full URL. Include https://</span></div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="panel" id="step-3" hidden>
+          <h3>Commitment, setup and fee</h3>
+          <p class="panel-sub">Live sessions are <span data-cfg="sessionSchedule">Mon–Fri 19:30–21:30 IST plus Saturday morning</span>, and the fee is <span data-cfg="feeTotal">₹1,20,000</span> <span data-cfg="feeTaxNote">plus 18% GST</span> over six months. Better to find a mismatch now than in month two.</p>
+          <div class="formerr" data-formerr>Some fields need attention. They are marked below.</div>
+          <div class="grid2">
+            <div class="field"><label for="start">Can you start on <span data-cfg="batchBeginsLong">5 October 2026</span>? <span class="req">*</span></label>
+              <select id="start" name="start" required>
+                <option value="">Select an answer</option>
+                <option>Yes, from day one</option>
+                <option>Yes, but I need the first week off</option>
+                <option>No — consider me for the next batch</option>
+              </select><span class="err" data-err>Let us know your availability.</span></div>
+            <div class="field"><label for="hours">Are the evening hours workable? <span class="req">*</span></label>
+              <select id="hours" name="hours" required>
+                <option value="">Select an answer</option>
+                <option>Yes, every weekday evening and Saturday morning</option>
+                <option>Yes, but I have a fixed conflict once a week</option>
+                <option>No — those hours do not work for me</option>
+              </select><span class="err" data-err>Let us know whether the live hours work for you.</span></div>
+            <div class="field"><label for="internet">Your internet connection <span class="req">*</span></label>
+              <select id="internet" name="internet" required>
+                <option value="">Select an answer</option>
+                <option>Broadband or fibre, reliable</option>
+                <option>Broadband, occasional drops</option>
+                <option>Mobile hotspot only</option>
+                <option>Unreliable — I would need support</option>
+              </select><span class="err" data-err>Tell us what you will be joining sessions on.</span></div>
+            <div class="field"><label for="device">Your laptop <span class="req">*</span></label>
+              <select id="device" name="device" required>
+                <option value="">Select an answer</option>
+                <option>Own laptop, 8 GB RAM or more</option>
+                <option>Own laptop, under 8 GB RAM</option>
+                <option>Shared or borrowed laptop</option>
+                <option>No laptop yet</option>
+              </select>
+              <span class="hint">Answering honestly does not count against you.</span>
+              <span class="err" data-err>Tell us what you will be working on.</span></div>
+            <div class="field"><label for="payer">Who would pay the fee? <span class="req">*</span></label>
+              <select id="payer" name="payer" required>
+                <option value="">Select an answer</option>
+                <option>Myself, from savings or earnings</option>
+                <option>My family</option>
+                <option>My employer</option>
+                <option>I would need to arrange finance</option>
+              </select><span class="err" data-err>Let us know how the fee would be met.</span></div>
+            <div class="field"><label for="payplan">Preferred payment schedule <span class="req">*</span></label>
+              <select id="payplan" name="payplan" required>
+                <option value="">Select an answer</option>
+                <option data-cfg="payplanA">Monthly — ₹23,600 × 6</option>
+                <option data-cfg="payplanB">Two halves — ₹70,800 × 2</option>
+                <option data-cfg="payplanC">One payment — ₹1,41,600</option>
+                <option>I would like to discuss this</option>
+              </select><span class="err" data-err>Pick the schedule that suits you — it is not binding.</span></div>
+          </div>
+
+          <div class="field"><label for="why">Why this internship, and what would you do with it? <span class="req">*</span></label>
+            <textarea id="why" name="why" required placeholder="Tell us about a problem you tried to solve, what got in the way, and what you did next."></textarea>
+            <div style="display:flex;justify-content:space-between;gap:12px">
+              <span class="hint">Between 80 and 250 words. Write it yourself — we can tell.</span>
+              <span class="counter" id="whyCount">0 words</span>
+            </div>
+            <span class="err" data-err id="whyErr">Write between 80 and 250 words.</span>
+          </div>
+
+          <div class="field"><label for="source">How did you hear about this?</label>
+            <select id="source" name="source">
+              <option value="">Prefer not to say</option>
+              <option>College placement cell</option><option>A past intern</option>
+              <option>LinkedIn</option><option>Instagram or YouTube</option>
+              <option>Search</option><option>An event or workshop</option><option>Other</option>
+            </select></div>
+
+          <div class="field" id="feeField">
+            <label class="consent"><input type="checkbox" id="feeack" name="feeack" required>
+              <span>I understand the fee is <b data-cfg="feeTotal">₹1,20,000</b> <b data-cfg="feeTaxNote">plus 18% GST</b> for the six months, that nothing is payable unless I am offered a seat and accept it, and that payments made are not refundable. <span class="req">*</span></span></label>
+            <span class="err" data-err>Please confirm you have read the fee terms.</span>
+          </div>
+
+          <div class="field" id="consentField" style="margin-bottom:0">
+            <label class="consent"><input type="checkbox" id="consent" name="consent" required>
+              <span>I confirm the information above is accurate and I agree to AMPM Enterprises contacting me about this application and storing these details for the selection process, as set out in the <a href="#privacy">privacy note</a>. <span class="req">*</span></span></label>
+            <span class="err" data-err>Please confirm before submitting.</span>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="panel" id="step-4" hidden>
+          <h3>Review your application</h3>
+          <p class="panel-sub">Check it over. Use the step tabs above to change anything before you submit.</p>
+          <div class="formerr" id="sendErr"></div>
+          <div class="review" id="review"></div>
+        </div>
+
+        <div class="actions" id="actions">
+          <button type="button" class="btn btn-ghost" id="backBtn" hidden>Back</button>
+          <span class="hint mono" id="stepLabel">Step 01 of 05</span>
+          <button type="button" class="btn" id="nextBtn">Continue</button>
+        </div>
+      </form>
+
+      <div class="form-shell" id="successCard" hidden>
+        <div class="done">
+          <svg class="tick" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+            <circle cx="26" cy="26" r="24" stroke="currentColor" stroke-width="2"/>
+            <path d="M15 27l8 8 15-16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Application received</h3>
+          <p>Thanks, <span id="doneName">applicant</span>. A confirmation is on its way to <span id="doneEmail">your inbox</span>.</p>
+          <div class="refbox"><span class="eyebrow">Your reference</span><b id="refId">AMPM-000000</b></div>
+          <div class="next">
+            <ul class="checklist">
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Within 4 working days</b> — the mentor reads your application and replies either way.</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>If you move forward</b> — a link to book your 30-minute screening call.</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>No payment</b> is requested at any point before a seat is offered and accepted.</span></li>
+            </ul>
+          </div>
+          <p style="margin-top:28px"><button type="button" class="btn btn-ghost btn-sm" id="againBtn">Submit another application</button></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">08 / Your data</span></div>
+      <h2>What we do with what you tell us</h2>
+      <p class="sec-sub">Short version: your application is read by the mentor, kept in a private spreadsheet, never sold or shared, and deleted the moment you ask.</p>
+      <div class="cols">
+        <div>
+          <ul class="checklist" style="margin-top:0">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>What we collect.</b> Only what you type into the form — your name, email, mobile, city, education, links you choose to share, your self-rating, your availability and your written statement. Nothing else. No tracking scripts, no advertising cookies, no analytics.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Where it goes.</b> A private Google Sheet belonging to AMPM Enterprises, readable by the mentor running selection. It is not sold, rented or shared with any third party.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>What it is used for.</b> Assessing this application, contacting you about it, and — unless you tell us otherwise — letting you know when a later batch opens.</span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="checklist" style="margin-top:0">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Your half-finished application</b> is saved in your own browser so you can close the tab and return. It stays on your device and reaches us only when you press submit.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>How long we keep it.</b> Until you ask us to delete it. We hold applications so we can consider you for later batches rather than making you start again.</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.2 12 13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Asking us to delete it.</b> Email <a href="mailto:internships@singularitysolutions.co.in" data-cfg="contactEmail" data-cfg-mailto="contactEmail">internships@singularitysolutions.co.in</a> with the reference number from your confirmation. We will remove your application within 30 days and confirm when it is done. You can also ask for a copy of what we hold, or have it corrected.</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:18px">AMPM Enterprises is the data controller for this form. Questions about any of the above go to the same address.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">09 / Questions</span></div>
+      <h2>Before you apply</h2>
+      <div class="faq">
+        <details><summary>Is a job guaranteed at the end?<span></span></summary><p>No. Nobody honest can guarantee you a job, and a programme that does is selling you something else. What is committed to here is six months of real project work, a mentor who reviews everything you write, an experience certificate and project letter, and two weeks of interview preparation. Whether AMPM Enterprises has an opening when your batch finishes depends on the year; interns are considered first when there is one.</p></details>
+        <details><summary>Why does an internship cost money?<span></span></summary><p>Because you are not producing enough value in month one to be paid for it, and a senior engineer's time spent reviewing your work has a real cost. Ten seats is the cap for exactly that reason. The honest framing: you are buying six months of supervised experience and the record of it, not selling your labour.</p></details>
+        <details><summary>When do I actually pay?<span></span></summary><p data-cfg="faqPayment">Only after you are offered a seat and accept it. The application, the screening call and the technical task cost nothing. The booking amount of ₹20,000 confirms your seat and counts as the first month; the remaining ₹1,00,000 is paid in five monthly instalments on the 5th.</p></details>
+        <details><summary>What if I drop out halfway?<span></span></summary><p data-cfg="faqRefund">You stop paying the remaining instalments — you are never liable for the rest of the fee. Instalments already paid are not refunded, and no certificate is issued for a partial internship. Withdraw within the first 10 days and only the booking amount is kept.</p></details>
+        <details><summary>Can I do this alongside a job or final-year classes?<span></span></summary><p>Yes — that is why it runs in the evenings. Budget about 22 hours a week: ten live hours and roughly ten to twelve on your own tickets. Interns who treat the personal hours as optional are the ones who miss milestones.</p></details>
+        <details><summary>Are the sessions recorded?<span></span></summary><p>No. Every session is live, which is what allows people to ask the naive question and show broken code. The trade is that attendance matters — 85% is the bar for certification, and missed sessions are caught up with the mentor in office hours.</p></details>
+        <details><summary>Is the certificate a real experience certificate?<span></span></summary><p>It is issued by AMPM Enterprises, on letterhead, stating the role and the six-month period, with a verification ID and a contact for employers who ask. It records an internship — not employment — and it says so. The project letter beside it is what gives a recruiter something concrete to ask you about.</p></details>
+        <details><summary>Whose code do I work on?<span></span></summary><p>Live product and internal tooling work, under an NDA signed at the start. Your specific contributions are recorded so they can be described in the project letter, and you keep the right to talk about what you built in interviews.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>AMPM Enterprises &middot; Industry Internship, <span data-cfg="batchName">Batch 03</span> &middot; Applications close <span data-cfg="applicationsCloseLong">20 September 2026</span></span>
+    <a class="btn btn-sm" href="#apply">Apply</a>
+  </div>
+  <div class="wrap"><p class="demo-note">Applications are sent to AMPM Enterprises and reviewed by the mentor. Questions: <a href="mailto:internships@singularitysolutions.co.in" data-cfg="contactEmail" data-cfg-mailto="contactEmail">internships@singularitysolutions.co.in</a>. How we handle your data: <a href="#privacy">privacy note</a>.</p></div>
+</footer>
+
+
+<script>
+/* ======================================================================
+   CONFIGURATION — the only part you need to edit.
+   1. AMPM_ENDPOINT : the /exec URL of your Google Apps Script web app.
+   2. AMPM_CONTACT  : fallback contact email. The live value comes from the
+      Settings tab (contactEmail); this is only used before the sheet loads.
+   3. AMPM_BATCH    : label written into the sheet with every application.
+   ====================================================================== */
+window.AMPM_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+window.AMPM_CONTACT  = "internships@singularitysolutions.co.in";
+window.AMPM_BATCH    = "Batch 03";
+</script>
+
+<script>
+/* ----------------------------------------------------------------------
+   Live settings, read from the "Settings" tab of the Google Sheet.
+   Loaded as JSONP so no CORS configuration is needed. If the sheet is
+   unreachable the values already written into this page are simply kept.
+   ---------------------------------------------------------------------- */
+(function(){
+  var url=window.AMPM_ENDPOINT||"";
+  window.AMPM_CFG=null;
+  if(!url||url.indexOf("PASTE_")===0)return;
+  window.__ampmConfig=function(cfg){
+    if(!cfg||typeof cfg!=="object")return;
+    window.AMPM_CFG=cfg;
+    if(cfg.contactEmail&&String(cfg.contactEmail).trim())window.AMPM_CONTACT=String(cfg.contactEmail).trim();
+    Object.keys(cfg).forEach(function(key){
+      var v=cfg[key];
+      if(v===null||v===undefined||String(v).trim()==="")return;
+      v=String(v);
+      Array.prototype.forEach.call(document.querySelectorAll('[data-cfg="'+key+'"]'),function(el){
+        el.textContent=v;
+        if(el.tagName==="OPTION")el.value=v;
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-cfg-mailto="'+key+'"]'),function(el){
+        el.setAttribute("href","mailto:"+v);
+      });
+    });
+  };
+  var s=document.createElement("script");
+  s.src=url+(url.indexOf("?")<0?"?":"&")+"callback=__ampmConfig&t="+Date.now();
+  s.async=true;
+  document.body.appendChild(s);
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var form=document.getElementById("appform");
+  var panels=[0,1,2,3,4].map(function(i){return document.getElementById("step-"+i)});
+  var tabs=Array.prototype.slice.call(document.querySelectorAll(".progress button"));
+  var nextBtn=document.getElementById("nextBtn"),backBtn=document.getElementById("backBtn"),
+      stepLabel=document.getElementById("stepLabel"),reviewBox=document.getElementById("review"),
+      successCard=document.getElementById("successCard"),actions=document.getElementById("actions");
+  var current=0, furthest=0, KEY="ampm.internship.application.v1";
+
+  /* ---- self-rating rows ---- */
+  var SKILLS=[
+    ["prog","Writing code in any language"],
+    ["git","Git and version control"],
+    ["web","HTML, CSS and the browser"],
+    ["db","Databases and SQL"],
+    ["linux","Command line and Linux"]
+  ];
+  var LEVELS=["Never tried","Learning","Comfortable","Confident"];
+  var levelsWrap=document.getElementById("levels");
+  SKILLS.forEach(function(s){
+    var row=document.createElement("div");
+    row.className="selflevel";
+    var label=document.createElement("span");
+    label.className="sk";label.textContent=s[1];
+    var opts=document.createElement("div");
+    opts.className="opts";
+    LEVELS.forEach(function(lv,i){
+      var l=document.createElement("label");l.className="opt";
+      var inp=document.createElement("input");
+      inp.type="radio";inp.name="lvl_"+s[0];inp.value=lv;
+      var sp=document.createElement("span");sp.textContent=lv;
+      sp.style.padding="5px 10px";sp.style.fontSize=".8125rem";
+      l.appendChild(inp);l.appendChild(sp);opts.appendChild(l);
+      inp.addEventListener("change",save);
+    });
+    row.appendChild(label);row.appendChild(opts);levelsWrap.appendChild(row);
+  });
+
+  /* ---- helpers ---- */
+  function fieldOf(el){var f=el.closest(".field")||el.closest("fieldset");return f}
+  function setInvalid(el,bad){
+    var f=fieldOf(el);if(!f)return;
+    f.classList.toggle("invalid",!!bad);
+    if(el.setAttribute)el.setAttribute("aria-invalid",bad?"true":"false");
+    var e=f.querySelector("[data-err]");
+    if(e&&f.tagName==="FIELDSET")e.style.display=bad?"block":"none";
+  }
+  function wordCount(s){var t=s.trim();return t?t.split(/\s+/).length:0}
+  function isEmail(v){return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v)}
+  function isPhone(v){return /^[6-9]\d{9}$/.test(v.replace(/[\s-]/g,""))}
+  function isUrl(v){return /^https?:\/\/[^\s.]+\.[^\s]{2,}$/.test(v.trim())}
+
+  var checks={
+    fullName:function(v){return v.trim().length>=2},
+    email:function(v){return isEmail(v)},
+    phone:function(v){return isPhone(v)},
+    city:function(v){return v.trim().length>=2},
+    github:function(v){return !v.trim()||isUrl(v)},
+    linkedin:function(v){return !v.trim()||isUrl(v)},
+    degree:function(v){return !!v},
+    branch:function(v){return v.trim().length>=2},
+    college:function(v){return v.trim().length>=2},
+    gradYear:function(v){return !!v},
+    score:function(v){return v.trim().length>=1},
+    status:function(v){return !!v},
+    project:function(v){return !v.trim()||isUrl(v)},
+    start:function(v){return !!v},
+    hours:function(v){return !!v},
+    internet:function(v){return !!v},
+    device:function(v){return !!v},
+    payer:function(v){return !!v},
+    payplan:function(v){return !!v},
+    why:function(v){var w=wordCount(v);return w>=80&&w<=250}
+  };
+
+  function validateStep(step){
+    var ok=true,firstBad=null;
+    var ids={0:["fullName","email","phone","city","github","linkedin"],
+             1:["degree","branch","college","gradYear","score","status"],
+             2:["project"],
+             3:["start","hours","internet","device","payer","payplan","why"]}[step]||[];
+    ids.forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el)return;
+      var good=checks[id](el.value);
+      setInvalid(el,!good);
+      if(!good){ok=false;firstBad=firstBad||el}
+    });
+    if(step===2){
+      var track=form.querySelector('input[name="track"]:checked');
+      var tf=document.getElementById("trackField");
+      tf.classList.toggle("invalid",!track);
+      tf.querySelector("[data-err]").style.display=track?"none":"block";
+      if(!track){ok=false;firstBad=firstBad||tf}
+      var langs=form.querySelectorAll('input[name="langs"]:checked').length;
+      var lf=document.getElementById("langField");
+      lf.classList.toggle("invalid",!langs);
+      lf.querySelector("[data-err]").style.display=langs?"none":"block";
+      if(!langs){ok=false;firstBad=firstBad||lf}
+      var allRated=SKILLS.every(function(s){return !!form.querySelector('input[name="lvl_'+s[0]+'"]:checked')});
+      document.getElementById("levelsErr").style.display=allRated?"none":"block";
+      if(!allRated){ok=false;firstBad=firstBad||levelsWrap}
+    }
+    if(step===3){
+      [["feeack","feeField"],["consent","consentField"]].forEach(function(pair){
+        var c=document.getElementById(pair[0]),f=document.getElementById(pair[1]);
+        if(!c||!f)return;
+        f.classList.toggle("invalid",!c.checked);
+        if(!c.checked){ok=false;firstBad=firstBad||c}
+      });
+    }
+    var banner=panels[step].querySelector("[data-formerr]");
+    if(banner)banner.classList.toggle("show",!ok);
+    if(!ok&&firstBad&&firstBad.focus)firstBad.focus({preventScroll:false});
+    return ok;
+  }
+
+  /* ---- navigation ---- */
+  function show(step,noScroll){
+    current=step;
+    panels.forEach(function(p,i){p.hidden=i!==step});
+    tabs.forEach(function(t,i){
+      t.setAttribute("aria-current",i===step?"true":"false");
+      t.setAttribute("data-done",i<furthest?"1":"0");
+      t.disabled=i>furthest;
+    });
+    backBtn.hidden=step===0;
+    nextBtn.textContent=step===4?"Submit application":"Continue";
+    stepLabel.textContent="Step 0"+(step+1)+" of 05";
+    if(step===4)buildReview();
+    if(noScroll)return;
+    var y=document.getElementById("apply").getBoundingClientRect().top+window.scrollY-80;
+    window.scrollTo({top:y,behavior:"smooth"});
+  }
+  nextBtn.addEventListener("click",function(){
+    if(current===4){submit();return}
+    if(!validateStep(current))return;
+    furthest=Math.max(furthest,current+1);
+    save();show(current+1);
+  });
+  backBtn.addEventListener("click",function(){if(current>0)show(current-1)});
+  tabs.forEach(function(t,i){
+    t.addEventListener("click",function(){
+      if(i<=furthest){ if(i>current&&!validateStep(current))return; show(i);}
+    });
+  });
+
+  /* ---- live feedback ---- */
+  form.addEventListener("input",function(e){
+    var el=e.target;
+    if(el.id&&checks[el.id]){
+      var f=fieldOf(el);
+      if(f&&f.classList.contains("invalid")&&checks[el.id](el.value))setInvalid(el,false);
+    }
+    if(el.id==="why"){
+      var w=wordCount(el.value);
+      var c=document.getElementById("whyCount");
+      c.textContent=w+(w===1?" word":" words");
+      c.classList.toggle("over",w>250);
+    }
+    save();
+  });
+  form.addEventListener("change",function(e){
+    var el=e.target;
+    if(el.name==="track"){document.getElementById("trackField").classList.remove("invalid");
+      document.getElementById("trackField").querySelector("[data-err]").style.display="none"}
+    if(el.name==="langs"&&form.querySelectorAll('input[name="langs"]:checked').length){
+      document.getElementById("langField").classList.remove("invalid");
+      document.getElementById("langField").querySelector("[data-err]").style.display="none"}
+    if(el.id==="consent"&&el.checked)document.getElementById("consentField").classList.remove("invalid");
+    if(el.id==="feeack"&&el.checked)document.getElementById("feeField").classList.remove("invalid");
+    save();
+  });
+  form.addEventListener("blur",function(e){
+    var el=e.target;
+    if(el.id&&checks[el.id]&&el.value.trim())setInvalid(el,!checks[el.id](el.value));
+  },true);
+  form.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName!=="TEXTAREA"){e.preventDefault();nextBtn.click()}
+  });
+
+  /* ---- review ---- */
+  function val(id){var el=document.getElementById(id);return el&&el.value.trim()?el.value.trim():"—"}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function buildReview(){
+    var langs=Array.prototype.map.call(form.querySelectorAll('input[name="langs"]:checked'),function(i){return i.value}).join(", ")||"—";
+    var track=form.querySelector('input[name="track"]:checked');
+    var levels=SKILLS.map(function(s){
+      var c=form.querySelector('input[name="lvl_'+s[0]+'"]:checked');
+      return s[1]+": "+(c?c.value:"—");
+    }).join(" · ");
+    var groups=[
+      ["About you",[["Full name",val("fullName")],["Email",val("email")],["Mobile",val("phone")],
+        ["City",val("city")],["GitHub",val("github")],["LinkedIn",val("linkedin")]]],
+      ["Education",[["Degree",val("degree")],["Branch",val("branch")],["Institution",val("college")],
+        ["Graduation year",val("gradYear")],["Aggregate score",val("score")],["Current status",val("status")]]],
+      ["Skills",[["What you want most",track?track.value:"—"],["Languages",langs],
+        ["Self-rating",levels],["Project link",val("project")]]],
+      ["Commitment, setup & fee",[["Start availability",val("start")],["Evening hours",val("hours")],
+        ["Internet",val("internet")],["Laptop",val("device")],
+        ["Who would pay",val("payer")],["Preferred schedule",val("payplan")],
+        ["Fee terms",document.getElementById("feeack").checked?"Read and understood (₹1,20,000 + 18% GST over six months)":"Not confirmed"],
+        ["Statement",wordCount(document.getElementById("why").value)+" words submitted"],
+        ["Heard about us via",val("source")]]]
+    ];
+    reviewBox.innerHTML=groups.map(function(g){
+      return "<h4>"+esc(g[0])+"</h4><dl>"+g[1].map(function(r){
+        return '<div class="row"><dt>'+esc(r[0])+"</dt><dd>"+esc(r[1])+"</dd></div>";
+      }).join("")+"</dl>";
+    }).join("");
+  }
+
+  /* ---- submit (front-end demo) ---- */
+  function raw(id){var el=document.getElementById(id);return el?el.value.trim():""}
+  function checked(id){var el=document.getElementById(id);return el&&el.checked?"Yes":"No"}
+  function payload(){
+    var langs=Array.prototype.map.call(form.querySelectorAll('input[name="langs"]:checked'),function(i){return i.value}).join(", ");
+    var track=form.querySelector('input[name="track"]:checked');
+    var levels=SKILLS.map(function(s){
+      var c=form.querySelector('input[name="lvl_'+s[0]+'"]:checked');
+      return s[1]+": "+(c?c.value:"");
+    }).join(" | ");
+    return {
+      fullName:raw("fullName"),email:raw("email"),phone:raw("phone"),city:raw("city"),
+      github:raw("github"),linkedin:raw("linkedin"),
+      degree:raw("degree"),branch:raw("branch"),college:raw("college"),
+      gradYear:raw("gradYear"),score:raw("score"),status:raw("status"),
+      goal:track?track.value:"",langs:langs,levels:levels,project:raw("project"),
+      start:raw("start"),hours:raw("hours"),internet:raw("internet"),device:raw("device"),
+      payer:raw("payer"),payplan:raw("payplan"),feeack:checked("feeack"),
+      why:raw("why"),words:wordCount(raw("why")),source:raw("source"),consent:checked("consent"),
+      website:raw("website"),batch:((window.AMPM_CFG&&window.AMPM_CFG.batchName)||window.AMPM_BATCH||""),page:location.href
+    };
+  }
+  function send(data){
+    var url=window.AMPM_ENDPOINT||"";
+    if(!url||url.indexOf("PASTE_")===0)return Promise.reject(new Error("The form is not connected yet."));
+    var opts={method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)};
+    return fetch(url,opts).then(function(r){return r.json()}).then(function(j){
+      if(j&&j.ok)return j.ref||"";
+      throw new Error((j&&j.error)||"The server rejected the application.");
+    }).catch(function(){
+      /* Apps Script can answer without readable CORS headers — resend blind and trust delivery */
+      return fetch(url,{method:"POST",mode:"no-cors",headers:opts.headers,body:opts.body}).then(function(){return ""});
+    });
+  }
+  function sending(on){
+    nextBtn.disabled=on;backBtn.disabled=on;
+    nextBtn.textContent=on?"Sending…":"Submit application";
+    tabs.forEach(function(t){t.disabled=on||t.disabled});
+  }
+  function finish(ref){
+    var put=function(id,text){var el=document.getElementById(id);if(el)el.textContent=text};
+    put("refId",ref||("AMPM-"+String(Math.floor(100000+Math.random()*900000))));
+    put("doneName",raw("fullName").split(" ")[0]||"applicant");
+    put("doneEmail",raw("email"));
+    form.hidden=true;successCard.hidden=false;
+    try{localStorage.removeItem(KEY)}catch(err){}
+    successCard.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+  function submit(){
+    for(var s=0;s<4;s++){
+      if(!validateStep(s)){furthest=Math.max(furthest,s);show(s);return}
+    }
+    var box=document.getElementById("sendErr");
+    box.classList.remove("show");
+    sending(true);
+    send(payload()).then(function(ref){sending(false);finish(ref)}).catch(function(err){
+      sending(false);
+      var mail=(window.AMPM_CONTACT||""),m=String(err&&err.message||err);
+      if(/failed to fetch|networkerror|load failed/i.test(m))m="the connection to our server failed.";
+      else if(m&&m.slice(-1)!==".")m+=".";
+      box.innerHTML="Your application could not be sent — "+m+
+        " Please try again in a moment"+(mail?", or email it to <a href=\"mailto:"+mail+"\">"+mail+"</a>":"")+". Nothing you typed has been lost.";
+      box.classList.add("show");
+      box.scrollIntoView({behavior:"smooth",block:"center"});
+    });
+  }
+  document.getElementById("againBtn").addEventListener("click",function(){
+    form.reset();furthest=0;
+    document.querySelectorAll(".field.invalid,fieldset.invalid").forEach(function(f){f.classList.remove("invalid")});
+    document.getElementById("whyCount").textContent="0 words";
+    successCard.hidden=true;form.hidden=false;show(0);
+  });
+
+  /* ---- draft persistence (per browser, best effort) ---- */
+  function save(){
+    try{
+      var data={fields:{},langs:[],track:null,levels:{},step:furthest};
+      Array.prototype.forEach.call(form.querySelectorAll("input[id],select[id],textarea[id]"),function(el){
+        if(el.type==="checkbox"){if(el.id==="consent"||el.id==="feeack")data.fields[el.id]=el.checked}
+        else data.fields[el.id]=el.value;
+      });
+      data.langs=Array.prototype.map.call(form.querySelectorAll('input[name="langs"]:checked'),function(i){return i.value});
+      var t=form.querySelector('input[name="track"]:checked');data.track=t?t.value:null;
+      SKILLS.forEach(function(s){
+        var c=form.querySelector('input[name="lvl_'+s[0]+'"]:checked');
+        if(c)data.levels[s[0]]=c.value;
+      });
+      localStorage.setItem(KEY,JSON.stringify(data));
+    }catch(err){}
+  }
+  function restore(){
+    try{
+      var raw=localStorage.getItem(KEY);if(!raw)return;
+      var d=JSON.parse(raw);
+      Object.keys(d.fields||{}).forEach(function(id){
+        var el=document.getElementById(id);if(!el)return;
+        if(el.type==="checkbox")el.checked=!!d.fields[id];else el.value=d.fields[id];
+      });
+      (d.langs||[]).forEach(function(v){
+        var el=form.querySelector('input[name="langs"][value="'+v+'"]');if(el)el.checked=true;
+      });
+      if(d.track){var t=form.querySelector('input[name="track"][value="'+d.track+'"]');if(t)t.checked=true}
+      Object.keys(d.levels||{}).forEach(function(k){
+        var el=form.querySelector('input[name="lvl_'+k+'"][value="'+d.levels[k]+'"]');if(el)el.checked=true;
+      });
+      furthest=Math.min(d.step||0,4);
+      var w=wordCount(document.getElementById("why").value);
+      document.getElementById("whyCount").textContent=w+(w===1?" word":" words");
+    }catch(err){}
+  }
+  restore();
+  show(0,true);
+})();
+</script>
+
+</body>
+</html>
