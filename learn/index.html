@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex">
+<title>6-Month Computer Skills Course</title>
+<style>
+  :root {
+    --paper: #f5f2ea; --card: #ffffff; --ink: #1b2430; --muted: #5d6877; --line: #e2ddd0;
+    --brand: #0b5d57; --brand-dark: #084742; --brand-soft: #e0f0ee;
+    --ok: #17703b; --ok-soft: #e3f3e8; --warn: #8a5a00; --warn-soft: #fbefd2;
+    --bad: #a3271f; --bad-soft: #fbe6e3;
+    --t-basics: #1f5fa8; --t-data: #17703b; --t-video: #7a3fa0; --t-job: #a05a12;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+    font: 17px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
+  [hidden] { display: none !important; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 64px; }
+  a { color: var(--brand); }
+  button { font: inherit; cursor: pointer; }
+  :focus-visible { outline: 3px solid #f0a500; outline-offset: 2px; }
+
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .brand { font-weight: 700; letter-spacing: .01em; white-space: nowrap; }
+  .who { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 15px; min-width: 0; }
+  .who span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .linkbtn { white-space: nowrap; background: none; border: 0; padding: 6px 2px; color: var(--brand); text-decoration: underline; }
+
+  /* sign-in and message screens */
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 32px 26px; margin-top: 48px; }
+  .panel h1 { margin: 0 0 10px; font-size: 30px; line-height: 1.2; }
+  .panel p { margin: 0 0 14px; color: var(--muted); }
+  .panel ul { margin: 0 0 22px; padding-left: 20px; color: var(--muted); }
+  .notice { margin: 0 0 18px; padding: 12px 14px; border-radius: 10px; background: var(--warn-soft); color: var(--warn); }
+  #gbtn { min-height: 44px; }
+
+  /* week header */
+  .hero { padding: 30px 0 8px; }
+  .eyebrow { margin: 0; color: var(--brand); font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+  .hero h1 { margin: 4px 0 4px; font-size: 38px; line-height: 1.15; }
+  .hero h1 small { font-size: 20px; font-weight: 500; color: var(--muted); }
+  .hero .sub { margin: 0 0 18px; color: var(--muted); }
+  .bar { height: 12px; background: var(--line); border-radius: 99px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--brand); border-radius: 99px; transition: width .4s; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 12px 0 0; padding: 0; list-style: none; font-size: 15px; }
+  .chip { padding: 4px 11px; border-radius: 99px; background: #ebe7da; color: var(--ink); }
+  .chip.ok { background: var(--ok-soft); color: var(--ok); }
+  .chip.warn { background: var(--warn-soft); color: var(--warn); }
+  .chip.bad { background: var(--bad-soft); color: var(--bad); }
+  .cheer { margin: 20px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--ok-soft); color: var(--ok); font-weight: 600; }
+  .alert { margin: 20px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--bad-soft); color: var(--bad); }
+
+  h2.section { margin: 34px 0 12px; font-size: 20px; }
+  .weekdots { display: flex; gap: 6px; margin: 0 0 14px; }
+  .weekdots i { width: 100%; max-width: 46px; height: 6px; border-radius: 99px; background: var(--line); }
+  .weekdots i.on { background: var(--brand); }
+
+  /* task cards */
+  .task { background: var(--card); border: 1px solid var(--line); border-left: 6px solid var(--muted);
+    border-radius: var(--radius); padding: 18px 18px 16px; margin: 0 0 14px; }
+  .task[data-track="Computer basics"] { border-left-color: var(--t-basics); }
+  .task[data-track="Data"] { border-left-color: var(--t-data); }
+  .task[data-track="Video editing"] { border-left-color: var(--t-video); }
+  .task[data-track="Job search"] { border-left-color: var(--t-job); }
+  .task.next { box-shadow: 0 0 0 2px var(--brand); }
+  .task.done { background: #fbfaf6; }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 14px; color: var(--muted); }
+  .meta .daynum { font-weight: 700; color: var(--ink); }
+  .meta .nextup { color: var(--brand); font-weight: 700; }
+  .task h3 { margin: 6px 0 6px; font-size: 21px; line-height: 1.25; }
+  .task .todo { margin: 0 0 12px; }
+  .videos { margin: 0 0 14px; padding: 0; list-style: none; font-size: 16px; }
+  .videos li { margin: 0 0 6px; padding-left: 26px; position: relative; overflow-wrap: anywhere; }
+  .videos li::before { content: "\25B6"; position: absolute; left: 2px; top: 1px; font-size: 13px; color: var(--muted); }
+  .videos .label { color: var(--muted); font-size: 14px; display: block; }
+  .note { display: block; width: 100%; margin: 0 0 12px; padding: 11px 12px; font: inherit;
+    border: 1px solid #b9b3a3; border-radius: 10px; background: #fff; color: var(--ink); }
+  .notelabel { display: block; font-size: 14px; color: var(--muted); margin: 0 0 4px; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+  .primary { background: var(--brand); color: #fff; border: 0; border-radius: 10px; padding: 12px 22px; font-weight: 700; min-height: 48px; }
+  .primary:hover { background: var(--brand-dark); }
+  .primary[disabled] { opacity: .6; cursor: progress; }
+  .donemark { font-weight: 700; color: var(--ok); }
+  .saved { margin: 10px 0 0; font-size: 15px; color: var(--muted); }
+
+  details.week { background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
+  details.week > summary { padding: 14px 16px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; gap: 12px; }
+  details.week > summary span { color: var(--muted); font-weight: 400; font-size: 15px; }
+  details.week .inner { padding: 4px 14px 4px; }
+  details.week .task { border-width: 1px 1px 1px 6px; }
+  .locked { margin: 28px 0 0; padding: 16px; border: 1px dashed #b9b3a3; border-radius: 12px; color: var(--muted); text-align: center; }
+  .foot { margin-top: 40px; color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 520px) {
+    body { font-size: 16px; }
+    .hero h1 { font-size: 31px; }
+    .panel { padding: 26px 18px; margin-top: 28px; }
+    .primary { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <div class="brand">Computer Skills Course</div>
+    <div class="who" id="who" hidden>
+      <span id="who-name"></span>
+      <button class="linkbtn" id="signout" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <!-- Sign in -->
+  <main id="view-signin" hidden>
+    <div class="panel">
+      <h1>6-Month Computer Skills Course</h1>
+      <p>Sign in with the Google account your teacher enrolled.</p>
+      <ul>
+        <li>You get one week of topics at a time: six tasks, Monday to Saturday.</li>
+        <li>Watch the video, do the task, then press <strong>Mark as done</strong>.</li>
+        <li>When all six are done, the next week opens.</li>
+      </ul>
+      <p class="notice" id="signin-note" hidden></p>
+      <div id="gbtn"></div>
+    </div>
+  </main>
+
+  <!-- Messages: not enrolled, paused, errors -->
+  <main id="view-msg" hidden>
+    <div class="panel">
+      <h1 id="msg-title"></h1>
+      <p id="msg-body"></p>
+      <div class="actions">
+        <button class="primary" id="msg-retry" type="button">Try again</button>
+        <button class="linkbtn" id="msg-switch" type="button">Use a different Google account</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Loading -->
+  <main id="view-loading" hidden>
+    <div class="panel"><p style="margin:0">Loading your course…</p></div>
+  </main>
+
+  <!-- The course -->
+  <main id="view-app" hidden>
+    <section class="hero" aria-live="polite">
+      <p class="eyebrow" id="month-line"></p>
+      <h1 id="week-title"></h1>
+      <p class="sub" id="progress-line"></p>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="bar"><i id="bar-fill"></i></div>
+      <ul class="stats" id="stats"></ul>
+      <p class="cheer" id="cheer" hidden></p>
+      <p class="alert" id="alert" role="alert" hidden></p>
+    </section>
+
+    <section id="current-wrap">
+      <h2 class="section" id="current-heading">This week's tasks</h2>
+      <div class="weekdots" id="weekdots" aria-hidden="true"></div>
+      <div id="current"></div>
+    </section>
+
+    <p class="locked" id="locked" hidden></p>
+
+    <section id="past-wrap" hidden>
+      <h2 class="section">Completed weeks</h2>
+      <div id="past"></div>
+    </section>
+
+    <p class="foot">Stuck on a task or a video link not working? Tell your teacher.</p>
+  </main>
+</div>
+
+<script>
+/* ---------- Settings: fill these two in (see SETUP.md) ---------- */
+var CONFIG = {
+  ENDPOINT: 'https://script.google.com/macros/s/AKfycbxSW_pd7rd0BiV-gc19YeYUt6qZvOaXtjOWX6yoqvgdC4nezQSkUGlAAreCI8WQFWBA/exec',
+  GOOGLE_CLIENT_ID: '562803067331-lh1148ilrqkd1cdqa8s4he68v21d5moo.apps.googleusercontent.com'
+};
+</script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var token = null, state = null, busy = false;
+  var notes = {};                       // unsaved note text per day, kept across redraws
+  var KEY = 'course.idToken';
+
+  /* ---------- small helpers ---------- */
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    for (var k in (attrs || {})) {
+      if (k === 'text') n.textContent = attrs[k];
+      else if (k === 'class') n.className = attrs[k];
+      else n.setAttribute(k, attrs[k]);
+    }
+    (kids || []).forEach(function (c) { if (c) n.appendChild(c); });
+    return n;
+  }
+  var DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function niceDate(iso) {
+    var p = String(iso || '').slice(0, 10).split('-');
+    if (p.length !== 3) return '';
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    return DOW[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + MON[d.getUTCMonth()];
+  }
+  function niceTime(min) {
+    if (!min) return '';
+    var h = min / 60;
+    return 'About ' + (min % 60 === 0 ? h + (h === 1 ? ' hour' : ' hours') : min + ' minutes');
+  }
+  function emailFromToken(t) {
+    try {
+      var b = t.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+      return JSON.parse(decodeURIComponent(escape(atob(b)))).email || '';
+    } catch (e) { return ''; }
+  }
+  function store(t) { try { t ? sessionStorage.setItem(KEY, t) : sessionStorage.removeItem(KEY); } catch (e) {} }
+  function stored() { try { return sessionStorage.getItem(KEY); } catch (e) { return null; } }
+
+  function show(view) {
+    ['signin', 'msg', 'loading', 'app'].forEach(function (v) { $('view-' + v).hidden = v !== view; });
+  }
+  function message(title, body, opts) {
+    opts = opts || {};
+    $('msg-title').textContent = title;
+    $('msg-body').textContent = body;
+    $('msg-retry').hidden = !opts.retry;
+    $('msg-switch').hidden = !opts.switchAccount;
+    show('msg');
+  }
+
+  /* ---------- talking to the sheet ---------- */
+  function api(action, extra) {
+    var body = { action: action, idToken: token };
+    for (var k in (extra || {})) body[k] = extra[k];
+    // text/plain keeps this a "simple" request, which Apps Script accepts from any site.
+    return fetch(CONFIG.ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(body)
+    }).then(function (r) {
+      if (!r.ok) throw new Error('http ' + r.status);
+      return r.json();
+    });
+  }
+
+  var PROBLEMS = {
+    locked: 'That week is not open yet. Finish this week first.',
+    week_closed: 'That week is already finished, so it can no longer be changed.',
+    unknown_day: 'That task could not be found. Reload the page and try again.'
+  };
+
+  /** Handles replies that end the session view; returns true if it did. */
+  function handledFatal(res) {
+    if (res.ok) return false;
+    var email = emailFromToken(token || '');
+    switch (res.error) {
+      case 'bad_token':
+        signOut('Your sign-in has run out. Please sign in again.');
+        return true;
+      case 'not_enrolled':
+        message('You are not enrolled yet',
+          (email ? email + ' is' : 'This Google account is') +
+          ' not on the course list. Your teacher has been told you tried to sign in. ' +
+          'Ask them to add this email address, or sign in with the one they enrolled.',
+          { retry: true, switchAccount: true });
+        return true;
+      case 'paused':
+        message('Your course is paused', 'Please contact your teacher to start again.',
+          { retry: true, switchAccount: true });
+        return true;
+      case 'bad_start_date':
+        message('Your start date needs fixing',
+          'Ask your teacher to check the start date entered for you. Nothing you did is lost.',
+          { retry: true });
+        return true;
+      case 'not_set_up':
+      case 'server_error':
+      case 'unknown_action':
+        message('Something went wrong on our side',
+          'Your progress is safe. Please try again in a minute, and tell your teacher if it keeps happening.',
+          { retry: true });
+        return true;
+    }
+    return false;
+  }
+
+  function loadState() {
+    show('loading');
+    api('state').then(function (res) {
+      if (handledFatal(res)) return;
+      state = res;
+      render(null);
+      show('app');
+    }).catch(function () {
+      message('Could not reach the course',
+        'Check your internet connection and try again. Your progress is safe.', { retry: true });
+    });
+  }
+
+  function act(action, day, button) {
+    if (busy) return;
+    busy = true;
+    var before = state.currentWeek, wasComplete = state.complete;
+    var label = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Saving…';
+    $('alert').hidden = true;
+    api(action, { day: day, note: notes[day] || '' }).then(function (res) {
+      busy = false;
+      if (handledFatal(res)) return;
+      if (!res.ok) {
+        button.disabled = false; button.textContent = label;
+        showAlert(PROBLEMS[res.error] || 'That did not save. Please try again.');
+        return;
+      }
+      if (action === 'complete') delete notes[day];
+      state = res;
+      var cheer = null;
+      if (res.complete && !wasComplete) cheer = 'You have finished the whole course. Well done!';
+      else if (res.currentWeek > before) cheer = 'Week ' + before + ' complete. Week ' + res.currentWeek + ' is now open.';
+      render(cheer);
+      if (cheer) window.scrollTo({ top: 0, behavior: 'smooth' });
+    }).catch(function () {
+      busy = false;
+      button.disabled = false; button.textContent = label;
+      showAlert('That did not save. Check your internet connection and press the button again.');
+    });
+  }
+  function showAlert(text) { $('alert').textContent = text; $('alert').hidden = false; }
+
+  /* ---------- drawing ---------- */
+  function videoItem(label, v) {
+    if (!v || !v.title) return null;
+    var kids = [el('span', { class: 'label', text: label })];
+    if (/^https:\/\//i.test(v.url || '')) {
+      kids.push(el('a', { href: v.url, target: '_blank', rel: 'noopener noreferrer', text: v.title }));
+    } else {
+      kids.push(el('span', { text: v.title }));
+    }
+    return el('li', {}, kids);
+  }
+
+  function taskCard(t, opts) {
+    var card = el('article', { class: 'task' + (t.done ? ' done' : '') + (opts.next ? ' next' : ''), 'data-track': t.track });
+    var meta = el('div', { class: 'meta' }, [
+      el('span', { class: 'daynum', text: 'Day ' + t.day }),
+      el('span', { text: t.track }),
+      niceTime(t.minutes) ? el('span', { text: niceTime(t.minutes) }) : null
+    ]);
+    if (t.done) {
+      meta.appendChild(el('span', { class: 'chip ' + (t.result === 'Late' ? 'warn' : 'ok'),
+        text: 'Done ' + niceDate(t.completedAt) + (t.result === 'Late' ? ' (late)' : ' (on time)') }));
+    } else if (t.result === 'Overdue') {
+      meta.appendChild(el('span', { class: 'chip bad', text: 'Was due ' + niceDate(t.planned) }));
+    } else {
+      meta.appendChild(el('span', { class: 'chip', text: 'Due ' + niceDate(t.planned) }));
+    }
+    if (opts.next) meta.appendChild(el('span', { class: 'nextup', text: 'Next up' }));
+    card.appendChild(meta);
+    card.appendChild(el('h3', { text: t.topic }));
+    card.appendChild(el('p', { class: 'todo', text: t.task }));
+    var vids = el('ul', { class: 'videos' }, [
+      videoItem('Watch this video', t.video),
+      videoItem('Or this one (Hindi where available)', t.alt)
+    ]);
+    if (vids.children.length) card.appendChild(vids);
+
+    if (t.done) {
+      if (t.note) card.appendChild(el('p', { class: 'saved', text: 'Your note: ' + t.note }));
+      if (opts.editable) {
+        var undo = el('button', { class: 'linkbtn', type: 'button', text: 'Not finished? Undo' });
+        undo.addEventListener('click', function () { act('undo', t.day, undo); });
+        card.appendChild(el('div', { class: 'actions' }, [el('span', { class: 'donemark', text: '✓ Done' }), undo]));
+      }
+    } else if (opts.editable) {
+      var id = 'note-' + t.day;
+      var input = el('input', { class: 'note', id: id, type: 'text', maxlength: '500', autocomplete: 'off',
+        placeholder: 'For example: typing speed 14 WPM' });
+      input.value = notes[t.day] || '';
+      input.addEventListener('input', function () { notes[t.day] = input.value; });
+      card.appendChild(el('label', { class: 'notelabel', for: id, text: 'Note for your teacher (optional)' }));
+      card.appendChild(input);
+      var btn = el('button', { class: 'primary', type: 'button', text: 'Mark as done' });
+      btn.addEventListener('click', function () { act('complete', t.day, btn); });
+      card.appendChild(el('div', { class: 'actions' }, [btn]));
+    }
+    return card;
+  }
+
+  function render(cheer) {
+    var s = state, tt = s.totals;
+    $('who-name').textContent = s.student.name;
+    $('who').hidden = false;
+
+    var current = null, past = [];
+    s.weeks.forEach(function (w) {
+      if (!s.complete && w.week === s.currentWeek) current = w; else past.push(w);
+    });
+
+    if (s.complete) {
+      $('month-line').textContent = 'All ' + s.totalWeeks + ' weeks';
+      $('week-title').textContent = 'Course completed';
+    } else {
+      $('month-line').textContent = 'Month ' + current.month + (current.monthTitle ? ': ' + current.monthTitle : '');
+      $('week-title').textContent = '';
+      $('week-title').appendChild(document.createTextNode('Week ' + current.week + ' '));
+      $('week-title').appendChild(el('small', { text: 'of ' + s.totalWeeks }));
+    }
+    $('progress-line').textContent = tt.done + ' of ' + tt.tasks + ' tasks done (' + tt.percent + '%)';
+    $('bar-fill').style.width = tt.percent + '%';
+    $('bar').setAttribute('aria-valuenow', tt.percent);
+    $('bar').setAttribute('aria-label', 'Course progress');
+
+    var stats = $('stats');
+    stats.textContent = '';
+    var cls = tt.status.indexOf('Behind') === 0 ? 'bad' : tt.status === 'Slightly behind' ? 'warn' :
+      tt.status === 'Not started yet' ? '' : 'ok';
+    stats.appendChild(el('li', { class: 'chip ' + cls, text: tt.status }));
+    if (tt.onTime) stats.appendChild(el('li', { class: 'chip', text: tt.onTime + ' on time' }));
+    if (tt.late) stats.appendChild(el('li', { class: 'chip', text: tt.late + ' late' }));
+    if (tt.overdue) stats.appendChild(el('li', { class: 'chip bad', text: tt.overdue + ' overdue' }));
+
+    $('cheer').hidden = !cheer;
+    $('cheer').textContent = cheer || '';
+    $('alert').hidden = true;
+
+    var box = $('current');
+    box.textContent = '';
+    $('current-wrap').hidden = !current;
+    if (current) {
+      var doneCount = current.tasks.filter(function (t) { return t.done; }).length;
+      $('current-heading').textContent = "This week's tasks: " + doneCount + ' of ' + current.tasks.length + ' done';
+      var dots = $('weekdots');
+      dots.textContent = '';
+      current.tasks.forEach(function (t) { dots.appendChild(el('i', { class: t.done ? 'on' : '' })); });
+      var nextFound = false;
+      current.tasks.forEach(function (t) {
+        var next = !t.done && !nextFound;
+        if (next) nextFound = true;
+        box.appendChild(taskCard(t, { editable: true, next: next }));
+      });
+    }
+
+    var locked = $('locked');
+    locked.hidden = s.complete || s.weeksRemaining <= 0;
+    locked.textContent = s.weeksRemaining + (s.weeksRemaining === 1 ? ' more week opens' : ' more weeks open') +
+      ' one at a time. Finish all of this week’s tasks to open the next week.';
+
+    var pastBox = $('past');
+    pastBox.textContent = '';
+    $('past-wrap').hidden = past.length === 0;
+    past.slice().reverse().forEach(function (w) {
+      var inner = el('div', { class: 'inner' });
+      w.tasks.forEach(function (t) { inner.appendChild(taskCard(t, { editable: false })); });
+      pastBox.appendChild(el('details', { class: 'week' }, [
+        el('summary', {}, [
+          document.createTextNode('Week ' + w.week),
+          el('span', { text: w.tasks.map(function (t) { return t.topic; }).slice(0, 2).join(', ') + ' and more' })
+        ]),
+        inner
+      ]));
+    });
+  }
+
+  /* ---------- Google sign-in ---------- */
+  function onCredential(resp) {
+    if (!resp || !resp.credential) return;
+    token = resp.credential;
+    store(token);
+    $('signin-note').hidden = true;
+    loadState();
+  }
+  function signOut(note) {
+    token = null; state = null; notes = {};
+    store(null);
+    $('who').hidden = true;
+    try { google.accounts.id.disableAutoSelect(); } catch (e) {}
+    $('signin-note').hidden = !note;
+    $('signin-note').textContent = note || '';
+    show('signin');
+  }
+  function startGoogle() {
+    if (!window.google || !google.accounts || !google.accounts.id) {
+      message('Google sign-in did not load',
+        'Check your internet connection, turn off any ad blocker for this page, and reload.', { retry: false });
+      return;
+    }
+    google.accounts.id.initialize({ client_id: CONFIG.GOOGLE_CLIENT_ID, callback: onCredential, auto_select: true });
+    google.accounts.id.renderButton($('gbtn'), { theme: 'filled_blue', size: 'large', text: 'signin_with', shape: 'pill' });
+    token = stored();
+    if (token) loadState(); else show('signin');
+  }
+
+  $('signout').addEventListener('click', function () { signOut(''); });
+  $('msg-switch').addEventListener('click', function () { signOut(''); });
+  $('msg-retry').addEventListener('click', function () { if (token) loadState(); else show('signin'); });
+
+  if (/^PASTE_/.test(CONFIG.ENDPOINT) || /^PASTE_/.test(CONFIG.GOOGLE_CLIENT_ID)) {
+    message('This page is not connected yet',
+      'The site owner still needs to add the Google client ID and the sheet address. See SETUP.md.', {});
+  } else {
+    show('loading');
+    var gs = document.createElement('script');
+    gs.src = 'https://accounts.google.com/gsi/client';
+    gs.async = true;
+    gs.onload = startGoogle;
+    gs.onerror = startGoogle;
+    document.head.appendChild(gs);
+  }
+})();
+</script>
+</body>
+</html>
